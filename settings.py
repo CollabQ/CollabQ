@@ -150,7 +150,7 @@ POST_NAME = 'xpress'
 
 # This is the domain where this is installed on App Engine. It will be
 # necessary to know this if you plan on enabling SSL for login and join.
-APP_ID = 'collabqdemo'
+APP_ID = 'collabq'
 GAE_DOMAIN = '%s.appspot.com' % APP_ID
 NS_DOMAIN = GAE_DOMAIN
 
