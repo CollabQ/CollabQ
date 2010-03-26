@@ -1,0 +1,70 @@
+{% extends 'administration/templates/base_admin.html' %}
+{% load nonce %}
+{% block admin_content %}
+<div class="content-wrapper">
+  {% include 'form_error.html' %}
+  <form class="form form-inline clearfix" action="" method="post">
+    {{request.user|noncefield:"channel_create"}}
+    <fieldset>
+      <legend>Channel</legend>
+      <input type="hidden" name="nick" value="{{request.user.nick}}" />
+      <input type="hidden" name="channel_create" value="" />
+      <div class="field-wrapper">
+        <label for="channel">Name of the channel</label>
+        <input type="text" name="channel" id="channel" class="text"
+        value="{{channel}}" />
+        <p class="help">
+          Please use only letters and numbers.
+        </p>
+      </div>
+      <div class="field-wrapper">
+        <label for="channel">description</label>
+        <textarea rows="2" cols="30" name="description"></textarea>
+      </div>
+      {% if ENABLE_CHANNEL_TYPES %}
+      <div class="field-wrapper">
+        <label for="channel">Type</label>
+        <select name="type" id="type">
+          {% for type in channel_types %}
+          <option {% ifequal view.get_channel_type type %}
+            selected='selected' {% endifequal %}
+            value="{{type}}">{{type}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      {% endif %}
+      <div class="field-wrapper">
+        <label for="channel">Tags</label>
+        <select name="tags" id="tags">
+          <option></option>
+        </select>
+      </div>
+      <div class="buttons clear">
+        <input type="submit" value="Create"/>
+      </div>
+    </fieldset>
+  </form>
+</div>
+{% endblock %}
+
+{% block bottomscripts %}
+    <script type="text/javascript" src="/js/jquery.fcbkcomplete.min.js?16"></script>
+    <script type="text/javascript">
+       $(document).ready(function()
+        {
+          $("#tags").log("Loading TAGS").fcbkcomplete({
+            json_url: "/channel/tag/all",
+            cache: false,
+            filter_case: false,
+            filter_hide: false,
+            firstselected: false,
+            filter_selected: true,
+            newel: false
+          });
+        });
+    </script>
+{% endblock %}
+
+{% block topstylesheets %}
+  <link rel="stylesheet" type="text/css" href="http://{{DOMAIN}}/themes/{{DEFAULT_THEME|urlencode}}/fcbk.css?4" media="screen,projection" />
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "common/templates/email/base.html" %}
+{% load format %}
+
+{% block body %}
+<h3>
+{{full_name}} ({{nick_name}}) wants to xPress forward with you on {{SITE_NAME}}.
+</h3>
+<h4>About {{SITE_NAME}}</h4>
+<div class="highlight" style="background:#fff; padding:1em 2em;">
+<p>
+{{SITE_DESCRIPTION}}
+</p>
+<p>
+To find out more about PressGen visit: <br/>
+{{accept_url}}
+</p>
+</div>
+{% endblock %}

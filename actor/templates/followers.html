@@ -1,0 +1,32 @@
+{% extends 'actor/templates/people_base.html' %}
+{% load nonce avatar vcard format %}
+{% block title %}{{whose}} followers{% endblock %}
+{% block people %}
+
+<div class="path">
+  <h1><a href="{% url_for view request %}/contacts">People</a> /
+    {{whose}}{% ifequal request.user.nick view.nick %}r{% else %}'s{% endifequal %}
+    followers ({{actor_tiles_count}})
+  </h1>
+</div>
+
+<div class="body">
+  {% include 'form_error.html' %}
+  <div id="followers" class='contacts clearfix'>
+    {% ifequal request.user.nick view.nick %}
+      <p class="foot-note">
+        Your followers allow you to see their {{POST_NAME|plural}} Those with a blue
+        background are ones that you are following.
+      </p>
+    {% endifequal %}
+
+    {% if actor_tiles %}
+      {% include 'common/templates/actor_tiles.html' %}
+    {% else %}
+      <p>No followers yet, but maybe soon :)</p>
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}

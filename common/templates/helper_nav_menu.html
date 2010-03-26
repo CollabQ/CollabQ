@@ -1,0 +1,22 @@
+{% load format %}
+<div id="helper-nav" class="">
+  <p id="login">
+    {% block login %}
+      {% if request.user %}
+        {% actor_link request.user request %} |
+        {% ifequal request.user.nick ROOT_NICK %}
+        <a href="/admin">Administration</a> |
+        {% endifequal %}
+        <a href="{{request.user.url}}/settings/profile">Settings</a> |
+        <a href="http://{{DOMAIN}}/logout">Sign Out</a>
+      {% else %}
+        Already a member?
+        {% if SUBDOMAINS_ENABLED %}
+          <a href="http://{{DOMAIN}}/login?redirect_to=http://{{request.META.HTTP_HOST}}{{request.META.PATH_INFO}}">Sign In</a>
+        {% else %}
+          <a href="http://{{DOMAIN}}/login?redirect_to={{request.META.PATH_INFO}}">Sign In</a>
+        {% endif %}
+      {% endif %}
+    {% endblock %}
+  </p>
+</div>

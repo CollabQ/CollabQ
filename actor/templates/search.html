@@ -1,0 +1,18 @@
+{% extends 'actor/templates/people_base.html' %}
+{% block title %}{{whose}} followings{% endblock %}
+
+{% block people %}
+  <div class="path">
+    <h1> Search result </h1>
+  </div>
+  <div class="body narrow">
+    {% include 'form_error.html' %}
+    <div id="contacts" class='contacts'>
+      {% if actor_tiles %}
+        {% include 'actor/templates/search_result.html' %}
+      {% else %}
+        <p> Users not found ... </p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

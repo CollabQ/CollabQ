@@ -1,0 +1,10 @@
+{% extends 'common/templates/form_photo.html' %}
+
+{% block buttons %}
+<p class="clearfix text-right">
+  <button type="submit" name="continue" value="1"><big class="active"><span>&#8250; Continue</span></big></button>
+</p>
+<p class="clearfix text-right">
+  <span>or <a href="/welcome/done?redirect_to={{redirect_to|urlencode}}">skip this now</a></span>
+</p>
+{% endblock %}

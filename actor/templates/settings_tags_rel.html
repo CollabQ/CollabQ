@@ -1,0 +1,128 @@
+{% extends 'actor/templates/settings_base.html' %}
+{% load nonce format %}
+
+{% block bottomscripts %}
+  <script type="text/javascript" src="http://{{DOMAIN}}/js/jquery.js"></script>
+  <script type="text/javascript" src="http://{{DOMAIN}}/js/jquery.cookie.js"></script> 
+  <script type="text/javascript" src="http://{{DOMAIN}}/js/jquery.listen.js"> </script> 
+  <script type="text/javascript" src="http://{{DOMAIN}}/js/css.js"></script>
+  <script type="text/javascript" src="http://{{DOMAIN}}/js/tree_component.js"></script>
+  <script type="text/javascript" src="http://{{DOMAIN}}/js/jquery.selectboxes.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+      var treejson = {};
+      $.ajax({
+        url: "http://{{DOMAIN}}/channel/tag/thetree",
+        success: function (data){
+
+          $("#thetree").append(data);// data;
+
+          
+          $("#thetree a").click(function(){
+            // begin strip spaces in tag -------------------------------------
+            var tag = $(this).html();
+            tag_result = ""
+            for (i=0; i < tag.length; i++)
+            {
+              if (!(tag[i] == " "))
+              { 
+                tag_result = tag_result + tag[i]; 
+              }
+            }
+            // end strip spaces ----------------------------------------------
+
+            // begin getting path tag tree -----------------------------------
+            result = "";
+            $.getJSON(
+              "http://{{DOMAIN}}/channel/tag/" + tag_result + "/path",
+              { ajax: true }, 
+              function (data) {
+                for(x=0; x < data.length; x++)
+                { result = result + data[x] + " "; } 
+                // set parent of tag in combobox -----------------------------
+                // and set a hidden variable for parent_old
+                $("#parent_old").attr('value', data[data.length -2]);
+                $("#parent_new").selectOptions(data[data.length -2], true);
+                // end parent of tag -----------------------------------------
+                // set tag in son combobox -----------------------------------
+                $("#son").attr('value', data[data.length-1]);
+                // end set in son combobox -----------------------------------
+              }
+            );
+            // end getting path tag tree -------------------------------------
+            return false;
+          });
+
+
+        }
+      });
+      $("#tree").tree();
+  });
+  </script>
+{% endblock %}
+
+
+
+{% block settings %}
+
+{# Another multi-phase form #}
+  <h2>Tags Creation and relation interface</h2>
+  {% include 'form_error.html' %}
+  <p>
+  You can add new tags by click en "Add new Tags". Then you can create relationships like parent-son between tags clicking in Tag's Relations .
+  </p>
+
+  <ul id="feed-types">
+    <li><a href="?new=newtag">New Tag</a></li>
+    <li><a href="?new=modtag">Tag modification</a></li>
+  </ul>
+  <hr>
+  {% ifequal form "newtag" %}
+    <form method="POST" action="">
+      <input type="hidden" name="backpage" value="{{form}}" />
+      <center>
+        <p>
+          <label> Parent Tag </label>
+          <select name="parent" style="width:100px">
+          {% for t in tags %}
+          <option name="parent" value="{{t}}"> {{ t }} </option>
+          {% endfor %}
+          </select>
+        </p> 
+      
+        <input type="text" name="sons" />
+        <p>
+          For create more than one Tags please enter betwen spaces
+        </p>
+        <button type="submit"> Create tags </submit>
+      </center>
+    </form>
+  {% endifequal %}
+
+  {% ifequal form "modtag" %}
+    <form method="POST" action="">
+      <input type="hidden" name="backpage" value="{{form}}" />
+      <div id=thetree> </div>
+      <p>
+        <input type="hidden" name="parent_old" id="parent_old" />
+        <label for="parent_new"> Parent Tag </label>
+        <select name="parent_new" id="parent_new" style="width:100px">
+          <option name="parent_new" value="Global"> Global </option>
+        {% for t in tags %}
+          <option name="parent_new" value="{{t}}"> {{ t }} </option>
+        {% endfor %}
+        </select>
+      </p> 
+      <p>
+        <label for="son"> (Children) Tag </label>
+        <input type="text" name="son" id="son" />
+      </p>
+      <button type="submit"> Modify Relation </submit>
+    </form>
+ 
+  {% endifequal %}
+
+
+
+{% endblock %}

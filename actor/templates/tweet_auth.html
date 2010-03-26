@@ -1,0 +1,14 @@
+{% extends 'common/templates/base_single.html' %}
+
+{% block title %}Testing Tweet{% endblock %}
+{% block content %}
+  <div>
+     {{title}}
+  </div>
+  <p>
+    <strong>request_token:</strong> {{request_token}}
+  </p>
+  <p>
+    <a href="{{authorization_url}}">authorization_url</a>
+  </p>
+{% endblock %}

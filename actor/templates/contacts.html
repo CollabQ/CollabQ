@@ -1,0 +1,37 @@
+{% extends 'actor/templates/people_base.html' %}
+{% load nonce format %}
+
+{% block title %}
+{% ifequal request.user.nick view.nick %}
+  {{whose}} are following
+{% else %}
+  {{whose}} is following
+{% endifequal %}
+{% endblock %}
+{% load nonce avatar vcard format %}
+
+{% block people %}
+  <div class="path">
+    <h1>
+       <a href="{% url_for view request %}/contacts">People</a>
+       / {{whose}} {% ifequal request.user.nick view.nick %} are {% else %} is {% endifequal %}following ({{actor_tiles_count}})
+    </h1>
+  </div>
+  <div class="body">
+  {% include 'form_error.html' %}
+    <div id="contacts" class='contacts clearfix'>
+      {% ifequal request.user.nick view.nick %}
+        <p class="foot-note">
+          The people who you are following can see your {{POST_NAME|plural}} even if your stream is
+          hidden from the public. Those with a blue background are also your
+          followers.
+        </p>
+      {% endifequal %}
+      {% if actor_tiles %}
+        {% include 'common/templates/actor_tiles.html' %}
+      {% else %}
+        <p>No contacts yet, but maybe soon :)</p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

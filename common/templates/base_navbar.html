@@ -1,0 +1,91 @@
+{% extends 'common/templates/base.html' %}
+{% load format %}
+
+{% block body %}
+  <div id="header-container">
+    <div id="header" class="clearfix">
+      {% block logo %}
+      <a href="/" id="logo">
+        <img src="/themes/{{DEFAULT_THEME|urlencode}}/logo.png" height="50" width="180" alt="{{SITE_NAME}}" />
+      </a>
+      {% endblock %}
+      
+      {% if not request.mobile %}
+        {% block mainnav %}
+        <ul id="main-nav">
+          {% if request.user %} {# The logged-in navigation #}
+          <li {% ifequal area "home" %}class="current"{% endifequal %} >
+            <a href="{{request.user.url}}/overview"><span>Home</span></a>
+          </li>
+          <li {% ifequal area "explore"%}class="current"{% endifequal %} >
+            <a href="http://{{DOMAIN}}/explore"><span>All {{POST_NAME|plural|capfirst}}</span></a>
+          </li>
+          {% if ENABLE_CHANNELS %}
+            <li class='{% ifequal area "channel" %}current{% endifequal %}'>
+              <a href="http://{{DOMAIN}}/channel?filter=all"><span>Channels</span></a>
+            </li>
+          {% endif %}
+          <li {% ifequal area "user" %}class="current"{% endifequal %} >
+            <a href="{{request.user.url}}"><span>Profile</span></a>
+          </li>
+          <li {% ifequal area "invite" %}class="current"{% endifequal %} >
+            <a href="{{request.user.url}}/invite"><span>Invite</span></a>
+          </li>
+          {% else %}
+          <li {% ifequal area "home" %}class="current"{% endifequal %} >
+            <a href="/"><span>Home</span></a>
+          </li>
+          <li {% ifequal area "explore"%}class="current"{% endifequal %} >
+            <a href="http://{{DOMAIN}}/explore"><span>All {{POST_NAME|plural|capfirst}}</span></a>
+          </li>
+          {% if ENABLE_CHANNELS %}
+            <li class='{% ifequal area "channel" %}current{% endifequal %}'>
+              <a href="http://{{DOMAIN}}/channel?filter=all"><span>Channels</span></a>
+            </li>
+          {% endif %}
+          {% endif %}
+        </ul>
+        {% endblock %}
+      {% endif %}
+
+      {% block helper_nav %}
+        {% if not request.mobile %}
+          {% include 'common/templates/helper_nav_menu.html' %}
+        {% endif %}
+      {% endblock %}
+
+    </div>
+  </div>
+  <div id="container" {% block containertag %}{% if style %} class="{{style}}"{% endif %}{% endblock %}>
+  {% block flash %}
+    {% include 'common/templates/flash.html' %}
+  {% endblock %}
+  {% block above_container %}{% endblock %}
+    
+  {% block container %}
+
+  {% endblock %}
+
+
+  </div>
+  {% if not request.mobile %}
+    
+    {% if DEBUG %}
+    <!--[if IE]>
+    <script type='text/javascript' src='/js/firebug.js'></script
+    <script type='text/javascript'>
+    (function(){
+      with(firebug){
+        minimize();
+      }
+    })();
+    </script>
+    <![endif]-->
+    {% endif %}
+    <script type="text/javascript" src="/js/jquery.js?10"></script>
+    <script type="text/javascript" src="/js/facebox.js?10"></script>
+    <script type="text/javascript" src="/js/core.js?16"></script>
+    {% block bottomscripts %}
+    {% endblock %}
+  {% endif %}
+{% endblock %}

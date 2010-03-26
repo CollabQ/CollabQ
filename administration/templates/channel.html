@@ -1,0 +1,38 @@
+{% extends 'administration/templates/base_admin.html' %}
+{% load format nonce %}
+{% block admin_content %}
+<div class="content-wrapper">
+  {% include 'form_error.html' %}
+  <form class="form form-inline clearfix" action="" method="post">
+    {{request.user|noncefield:"admin_channel"}}
+    <fieldset>
+      <legend>Enable/Disable Properties</legend>
+      <div class="field-wrapper checkboxes">
+        <div class="checkbox-field">
+          <label for="channel">Enable Channels</label>
+          <input type="checkbox" name="enable_channels" id="enable_channels"
+                 class="checkbox" value="True"
+                 {% if enable_channels %}checked="checked"{% endif %}/>
+        </div>
+        <div class="checkbox-field">
+          <label for="channel">Channel Types</label>
+          <input type="checkbox" name="enable_channel_types" id="enable_channel_types"
+                 class="checkbox" value="True"
+                 {% if enable_channel_types %}checked="checked"{% endif %}/>
+        </div>
+
+        <div class="checkbox-field">
+          <label for="channel">Create Channels</label>
+          <input type="checkbox" name="enable_channel_types" id="enable_channel_types"
+                 class="checkbox" value="True"
+                 {% if enable_channel_types %}checked="checked"{% endif %}/>
+          <p class="help">If this actived normal user can create channels</p>
+        </div>
+      </div>
+    </fieldset>
+    <div class="">
+      <input type="submit" value="Update" />
+    </div>
+  </form>
+</div>
+{% endblock %}

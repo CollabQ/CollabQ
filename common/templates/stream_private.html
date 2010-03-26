@@ -1,0 +1,32 @@
+{% load avatar format entry presence nonce %}
+{% if not hide_avatar %}
+{% linked_avatar entry.actor_ref "t" request %}
+{% endif %}
+<p>
+  {{entry.inbox}}
+</p>
+<h3>
+  <span class="actor-link">
+    {% actor_link entry.actor_ref request %}
+  </span>
+   <span>{{entry.extra.title|pobox_escape|urlize|format_fancy|format_links|format_actor_links}}</span>
+</h3>
+<p class="meta">
+  {% ifnotequal entry.actor entry.owner %}
+    to {% actor_link entry.owner_ref request %}
+  {% endifnotequal %}
+  {% if not hide_timesince %}
+  <a href="{% url_for entry request %}">{{entry.created_at|je_timesince}} ago</a>
+  {% endif %}
+  {% if not hide_links %}
+  <span class="actions">
+    {% ifequal entry.actor view.nick %}
+      <a href='?dm_delete={{entry.uuid}}&{{view|nonceparam:"dm_delete"}}' class="confirm-delete">Delete</a>
+      <a href="?reply={{entry.owner}}" class="add-comment">Reply</a>
+    {% else %}
+      <a href='?dm_delete={{entry.uuid}}&{{view|nonceparam:"dm_delete"}}' class="confirm-delete">Delete</a>
+      <a href="?reply={{entry.actor}}" class="add-comment">Reply</a>
+    {% endifequal %}
+  </span>
+  {% endif %}
+</p>

@@ -1,0 +1,47 @@
+{% load avatar format entry %}
+  {% for entry in entries %}
+  <entry xmlns="http://www.w3.org/2005/Atom"
+      xmlns:thr="http://purl.org/syndication/thread/1.0">
+    {% if include_source %}
+    <source>
+      <title>{{SITE_NAME}} | {{POST_NAME}} from {{entry.actor_ref.display_nick}}</title>
+      <link rel="alternate" href="{{entry.actor_ref.url}}"/>
+      <link rel="self" href="{{entry.actor_ref.url}}/atom"/>
+      <icon>{{entry.actor_ref|avatar_url}}</icon>
+      <author>
+        <name>{{entry.actor_ref.display_nick}}</name>
+      </author>
+    </source>
+    {% endif %}
+    <title>{{entry.title}}</title>
+
+    {% if entry.entry %}
+      <content type="xhtml">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          {% include "common/templates/stream_comment.html" %}
+        </div>
+      </content>
+      <thr:in-reply-to
+          ref="{{entry|entry_url:"noanchor"}}"
+          type="application/xhtml+xml"
+          href="{{entry|entry_url:"noanchor"}}" />
+    {% endif %}
+
+    {% ifequal entry.stream_ref.type 'presence' %}
+      <content type="xhtml">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          {% include "common/templates/stream_entry.html" %}
+        </div>
+      </content>
+    {% endifequal %}
+
+    <id>{{entry.url}}</id>
+    <link type="text/html" rel="alternate" href="{{entry.url}}"/>
+    <published>{{entry.created_at|date:"Y-m-d\TH:i:s\Z"}}</published>
+    <updated>{{entry.created_at|date:"Y-m-d\TH:i:s\Z"}}</updated>
+    <author>
+      <name>{{entry.actor_ref.display_nick}}</name>
+      <uri>{{entry.actor_ref.url}}</uri>
+    </author>
+  </entry>
+  {% endfor %}

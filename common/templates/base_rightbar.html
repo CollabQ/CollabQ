@@ -1,0 +1,14 @@
+{% extends 'common/templates/base_navbar.html' %}
+
+{% block containertag %}class="wide"{% endblock %}
+
+{% block container %}
+<div id="content" class="sidebar rightbar float-left">
+  <div id='content-wrapper' class="content-wrapper clearfix flow-auto">
+    {% block content %}{% endblock %}
+  </div>
+  {% include 'common/templates/footnav.html' %}
+</div>
+{% endblock %}
+
+

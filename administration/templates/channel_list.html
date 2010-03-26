@@ -1,0 +1,44 @@
+{% extends 'administration/templates/base_admin.html' %}
+{% load format %}
+{% block admin_content %}
+<div class="content-wrapper">
+  <p>
+    <a href="{{new_link}}" class="new_btn admin-btn">New Channel</a>
+  </p>
+  <p>
+    <strong>Filter: </strong>
+    <a href="/admin/channels?page={{page}}" class="filter">All</a>&nbsp;&nbsp;
+    {% for type in channel_types %}
+      <a href="/admin/channels?page={{page}}&filter={{type}}">{{type}}</a>&nbsp;&nbsp;
+    {% endfor %}
+  </p>
+  {% include 'form_error.html' %}
+  <div class="items clearfix">
+    <p class="titles row">
+      <strong class="counter cell">Counter</strong>
+      <strong class="name cell">Name</strong>
+      <strong class="extra cell">Type</strong>
+      <strong class="actions cell">Actions</strong>
+    </p>
+    {% for item in items %}
+      <p class="item row">
+        <span class="counter cell">{{forloop.counter0|sum:start}}</span>
+        <span class="name cell"><a href="{{item.url}}">{{ item.display_nick }}</a></span>
+        <span class="extra cell">{{ item.get_channel_type}}</span>
+        <span class="actions cell">
+          <a href="{{item.url}}/settings">settings</a> |
+          <a href="{{item.url}}/settings/details">Edit</a> |
+          {% if item.is_enabled %}
+            <a href="{{item.url}}/disable">Disable</a>
+          {% else %}
+            <a href="{{item.url}}/enable">Enable</a>
+          {% endif %}
+        </span>
+      </p>
+    {% endfor %}
+  </div>
+  <div class="pagination admin">
+  {% include 'channel/templates/paging.html' %}
+  </div>
+</div>
+{% endblock %}

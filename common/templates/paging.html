@@ -1,0 +1,11 @@
+{% load format %}
+{% if more or offset %}
+<div class="paging">
+  {% if more %}
+    Browse:
+    <a href="?offset={{more|urlencode}}">
+      {% if offset_text %}{{offset_text}}{% else %}More {{POST_NAME|plural}}{% endif %}
+    </a>
+  {% endif %}
+</div>
+{% endif %}

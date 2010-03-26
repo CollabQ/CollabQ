@@ -1,0 +1,10 @@
+{% ifnotequal request.user.nick view.nick %}
+<div id="actions" class='actions sidebar-block'>
+  {% if show_dm_link %}
+    <h2>Actions</h2>
+    <div class="sidebar-block-content">
+    <p><a href="/inbox/sent?reply={{view.nick}}">Message</a> @{{view.display_nick}}</p>
+    </div>
+  {% endif %}
+</div>
+{% endifnotequal %}

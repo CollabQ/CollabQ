@@ -1,0 +1,38 @@
+{% load vcard %}
+<div id="channels" class='channels sidebar-block'>
+  <h2>
+    <span class="text">Channels({{channel_count}})</span>
+  {% if channels_more %}
+  <a class="more-link" href="/channel" style="color:#fff; float:right;">&#8250; More</a>
+  {% endif %}
+  </h2>
+  <div class="sidebar-block-content">
+    <ul>
+      <li>
+        <div class="vcard">
+          <a rel="contact" href="http://{{DOMAIN}}/channel/{{DEFAULT_CHANNEL}}" class="url">
+            <img width="30" height="30" alt="#{{DEFAULT_CHANNEL}}" class="photo"
+                   src="http://{{DOMAIN}}/image/avatar_default_channel_u.jpg"/>
+          </a>
+          <div class="bubble">
+            <div>
+              <h3>
+                <a title="Channel #{{DEFAULT_CHANNEL}}"
+                   href="http://{{DOMAIN}}/channel/{{DEFAULT_CHANNEL}}">#{{DEFAULT_CHANNEL|title}}</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </li>
+      {% if channels %}
+        {% for channel in channels %}
+          <li>
+            {% with channel as actor %}
+              {% include 'common/templates/vcard_tile_rel.html' %}
+            {% endwith %}
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </div>
+</div>

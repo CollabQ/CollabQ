@@ -1,0 +1,13 @@
+{% ifnotequal area 'welcome-pobox' %}
+  <div id="welcome-steps">
+      <ul class="steps">
+        <li{% ifequal page "photo" %} class="current"{% else %}{% if welcome_photo %} class="done"{% endif %}{% endifequal %} id="step-1">
+          <a href="/welcome/1">Photo</a>
+        </li>
+        <li{% ifequal page "contacts" %} class="current"{% else %}{% if welcome_contacts %} class="done"{% endif %}{% endifequal %} id="step-2">
+          <a href="/welcome/2">Friends</a>
+        </li>
+      </ul>
+  </div>
+{% endifnotequal %}
+{% include 'common/templates/flash.html' %}

@@ -1,0 +1,23 @@
+{% extends 'invite/templates/invite_base.html' %}
+{% load avatar nonce %}
+
+{% block content %}
+<div id="invite" class="clearfix">
+  <div class="content-wrapper clearfix">
+    <div class="profile">
+      <a class="avatar" href="{{entry.actor_ref.url}}">
+        {% with view as actor %}
+          {{actor|avatar:"f"}}
+        {% endwith %}
+      </a>
+    </div>
+    <div class="invite-form">
+      {% include 'common/templates/form_invite_accept.html' %}
+    </div>
+  </div>
+  <div id="stream">
+    <h2>{{view.display_nick}}'s 3 Most Recent messages</h2>
+    {% include 'common/templates/stream.html' %}
+  </div>
+</div>
+{% endblock %}

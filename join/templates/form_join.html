@@ -1,0 +1,47 @@
+{% load format %}
+{% include 'common/templates/form_error.html' %}
+<form id="signup" class="clearfix" action="" method="post">
+  <div class="highlight">
+    <label for="nick"><strong>Username</strong></label>
+    <input type="text" name="nick" id="nick" maxlength="24" class="text" value="{{nick}}"/>
+    <p class="help">
+    Please use only letters and numbers.
+    </p>
+  </div>
+  <div>
+    <label for="email"><strong>Email address</strong></label>
+    <input type="text" name="email" id="email" class="text" value="{{email}}" maxlength="70"/>
+    {% if EMAIL_LIMIT_DOMAIN %}
+    <p class='help'>Address must be in the <strong>{{EMAIL_LIMIT_DOMAIN}}</strong> domain</p>
+    {% endif %}
+  </div>
+  <div>
+    <label for="password"><strong>Password</strong></label>
+    <input type="password" name="password" id="password" class="text" maxlength="50"/>
+  </div>
+  <div>
+    <label for="confirm"><strong>Verify password</strong></label>
+    <input type="password" name="confirm" id="confirm" class="text" maxlength="50"/>
+  </div>
+
+  <div>
+    <label for="first_name"><strong>First name</strong></label>
+    <input type="text" name="first_name" id="first_name" maxlength="60" class="text" value="{{first_name}}"/>
+  </div>
+
+  <div>
+    <label for="last_name"><strong>Last name</strong></label>
+    <input type="text" name="last_name" id="last_name" maxlength="60" class="text" value="{{last_name}}"/>
+  </div>
+  <div class="radio">
+    <p>
+      By clicking "Sign Up" you are indicating that you are over 13 years of age and
+      have read and agreed to {{SITE_NAME}}'s <a href="/terms">Terms of Use</a> &amp; <a href="/privacy">Privacy Policy</a>.
+    </p>
+  </div>
+
+  <div class="buttons">
+    <input type="hidden" name="redirect_to" value="{{redirect_to}}" />
+    <input type="submit" value="SIGN UP" class="button"/>
+  </div>
+</form> 

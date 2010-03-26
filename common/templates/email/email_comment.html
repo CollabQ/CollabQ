@@ -1,0 +1,18 @@
+{% extends "common/templates/email/base.html" %}
+{% block body %}
+<p>
+{% if my_entry %}
+  <strong>{{from_name}}</strong> has posted the following comment to your {{POST_NAME}} <em>"{{entry_title}}"</em>:
+{% else %}
+   <strong>{{from_name}}</strong> has posted the following comment to
+   <strong>{{entry_actor_name}}'s</strong> {{POST_NAME}} <em>"{{entry_title}}"</em>:
+{% endif %}
+</p>
+<p class="highlight" style="background:#fff; padding:1em 2em;">
+"{{comment_pretty}}"
+</p>
+<p>
+To reply to{{my_entry|yesno:" or delete,"}} this comment, click on one of the following links (or copy and paste it to your browser):
+</p>
+<p>{{entry_url}}</p>
+{% endblock %}

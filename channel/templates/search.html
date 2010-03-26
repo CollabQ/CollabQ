@@ -1,0 +1,55 @@
+{% extends 'channel/templates/channel_base.html' %}
+{% load nonce avatar vcard format %}
+
+{# TODO(termie): there is a double line happening at the top of
+                 the page beneath "Channels"
+#}
+{% block path %}Search Results for &quot;{{q}}&quot;{% endblock %}
+{% block channel_body %}
+  <div id="top_browse" class="search-page">
+    <div id="search" class="search-channels search-page">
+      {% include 'channel/templates/form_search.html' %}
+    </div>
+    <div id="country-tags" class="search-page">
+      <select id="country" name="country">
+        <option value="">Select a country</option>
+        {% for country in countries %}
+          <option value="{{country.target}}" {% ifequal country.target tagkey %}selected="selected"{% endifequal %}>{{country.target|tag_name}}</option>
+        {% endfor %}
+      </select>
+      <p class="small">You can choose a country</p>
+    </div>
+  </div>
+  <div id="browse" class="channels">
+    {% with actors as channel_tiles %}
+      {% include 'channel/templates/channel_tiles.html' %}
+    {% endwith %}
+    {% include 'channel/templates/paging.html' %}
+  </div>
+{% endblock %}
+
+{% block search %}
+{% endblock %}
+
+{% block tip %}{% endblock %}
+
+{% block related_tags %}
+  <div id="channels" class="group channels">
+    <div class="top-corner">
+      <div class="bottom-corner">
+        <h2>Your Channels</h2>
+        <ul>
+        {% for channel in channels_member %}
+          <li>
+            {% with channel as actor %}
+              {% include 'common/templates/vcard_tile_rel.html' %}
+            {% endwith %}
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+

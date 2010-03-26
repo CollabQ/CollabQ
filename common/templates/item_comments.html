@@ -1,0 +1,97 @@
+{# the comments section for actor and channel item pages #}
+{% load nonce avatar format entry %}
+<div id="comments">
+  {% if comments|length %}
+  <h2>{{comments|length}} repl{{comments|length|pluralize:"y,ies"}} so far</h2>
+  <ul class="stream">
+  {% for comment in comments %}
+  {% if not comment.actor_ref.spam %}
+  <li id="c-{{comment.uuid}}" class="comment">
+    <div class="top">
+      <div class="bottom">
+        {% linked_avatar comment.actor_ref "u" request %}
+        <p>{% if request %}{{comment|format_comment:request}}{% else %}{{comment|format_comment}}{% endif %}</p>
+        <p class="meta">
+        {{comment.created_at|je_timesince}} ago by {% actor_link comment.actor_ref request %}
+
+        {% entry_remove_comment request.user comment %}
+        {% entry_mark_as_spam request.user comment %}
+        </p>
+      </div>
+    </div>
+  </li>
+  {% else %}
+  <li class="spam">
+    <p>This comment is hidden because it appears to be spam</p>
+  </li>
+  {% endif %}
+  {% endfor %}
+  </ul>
+  {% else %}
+  <h2>No comments so far</h2>
+  {% endif %}
+</div>
+
+{% if request.user %}
+  {% if not request.user.spam %}
+  <div id="div-comment-form">
+    <div class="bottom-corner">
+      <div class="content-corner">
+      <h2>Reply</h2>
+      <div class="top">
+        <div class="bottom">
+          <div id="leave-comment" class="wrapper">
+            {% include 'form_error.html' %}
+            <form id="comment-form" action="" method="post">
+              <p id="counter">140 characters left</p>
+              <textarea name="content" id="message" class="comment-message" rows="4" cols="25" tabindex="1"></textarea>
+                <p id="participant-nicks">
+                {% if COMMENT_QUICKLINKS_ENABLED and participants %}
+                  Click to insert screen name{% if COMMENT_QUICKLINKS_ACCESSKEYS_ENABLED %} (or use keyboard shortcuts 1–9){% endif %}:<br/>
+                  {% for lowernick, actor_ref in participants.items|dictsort:"0"|slice:":9" %}
+                    {{actor_ref|avatar:"u"}}<a href="#"{% if COMMENT_QUICKLINKS_ACCESSKEYS_ENABLED %} accesskey="{{forloop.counter}}"{% endif %}>{{actor_ref.display_nick}}</a>{% if COMMENT_QUICKLINKS_ACCESSKEYS_ENABLED %}<span>/{{forloop.counter}}</span>{% endif %}
+                  {% endfor %}
+                  {% for lowernick, actor_ref in participants.items|dictsort:"0"|slice:"10:25" %}
+                    {{actor_ref|avatar:"u"}}<a href="#">{{actor_ref.display_nick}}</a>
+                  {% endfor %}
+                {% else %}
+                <br/>
+                {% endif %}
+                </p>
+              {% if MARKDOWN_ENABLED %}
+              <p class="help">
+              Minimal formatting allowed (_<em>emphasis</em>_, *<strong>bold</strong>*, [link text](http://example.com/))
+              </p>
+              {% endif %}
+
+              <div class="buttons">
+                {{request.user|noncefield:"entry_add_comment"}}
+                <input type="hidden" name="stream" value="{{entry_ref.stream}}" />
+                <input type="hidden" name="entry" value="{{entry_ref.keyname}}" />
+                <input type="hidden" name="nick" value="{{request.user.nick}}" />
+                <input type="hidden" name="entry_add_comment" value="" />
+                <input class="button" type="submit" value="Reply" tabindex="2"/>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% else %}{# user is spam #}
+  <div class="notice">
+    <h3>Posting suspended</h3>
+    <p>
+    Your posting rights have been suspended because your activities triggered our spam watchdog. If you think this was a mistake, please contact us by email at <a href="mailto:support@{{HOSTED_DOMAIN}}">support@{{HOSTED_DOMAIN}}</a> and we'll sort out your case.
+    </p>
+  </div>
+  {% endif %}
+{% else %}
+<p class="centered">
+  <big><a href="/login?redirect_to=http://{{request.META.HTTP_HOST|urlencode}}{{request.META.PATH_INFO|urlencode}}">Sign in to add a comment</a></big>
+</p>
+
+{% endif %}
+
+

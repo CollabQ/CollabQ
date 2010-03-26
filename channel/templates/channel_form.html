@@ -1,0 +1,36 @@
+{% load nonce avatar vcard base format %}
+{% if user_can_post %}
+  {% include_extend 'common/templates/message_form.html' %}
+  {% block classmessage %}channel{% endblock %}
+  {% block channel_title %}
+    <div id="actions">
+        {% if not user_is_admin %}
+        <a class="leave" href="{% url_for view request %}?channel_part=&amp;nick={{request.user.nick|urlencode}}&amp;channel={{view.nick|urlencode}}&amp;{{request.user|nonceparam:"channel_part"}}">Leave {{view.display_nick}}</a>
+        <span>You are a member.</span>
+        {% else %}
+        <a class="settings" href="{{view.url}}/settings">Edit settings</a>
+        {% endif %}
+    </div>
+    <h1 class="fn">
+      <span class="nickname">{{view.display_nick}}</span>
+    </h1>
+  {% endblock %}
+  {% block message_title %}<h2>What's happening?</h2>{% endblock %}
+{% endinclude_extend %}
+{% else %}
+{% include 'form_error.html' %}
+<div class="main">
+  <div class="vcard" id="profile">
+    {% with view as actor %}
+      {% include 'common/templates/vcard_full.html' %}
+    {% endwith %}
+    {% if request.user %}
+    <p id="actions" class="clearfix">
+      <a class="join" href="{% url_for view request %}?channel_join=&amp;nick={{request.user.nick|urlencode}}&amp;channel={{view.nick|urlencode}}&amp;{{request.user|nonceparam:"channel_join"}}">
+        + Join
+      </a> {{view.display_nick}} &amp; xPress forward!
+    </p>
+    {% endif %}
+  </div>
+</div>
+{% endif %}

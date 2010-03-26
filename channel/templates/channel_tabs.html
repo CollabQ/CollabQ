@@ -1,0 +1,9 @@
+{% load format %}
+<ul id="sub-nav">
+  <li {% ifequal tab 'local' %}class="first current"{% endifequal %}>
+    <a href="{{view.url}}">Local {{POST_NAME|plural}}</a>
+  </li>
+  <li {% ifequal tab 'twitter' %}class="current"{% endifequal %}>
+    <a href="{{view.url}}/twitter">Twitter Trends</a>
+  </li>
+</ul>

@@ -1,0 +1,36 @@
+{% extends 'common/templates/base_sidebar.html' %}
+{% load nonce format %}
+{% block title %}Twitter{% endblock %}
+
+{% block content %}
+{% include 'common/templates/message_form.html' %}
+
+{% if not request.mobile %}
+    {% include 'common/templates/subnav_tabs.html' %}
+{% endif %}
+
+<div id='stream'>
+  <h2>Twitter</h2>
+  {% if twitter_error %}
+  <div class="highlight">
+    <p>
+      There was some problems synchronizing with your twitter account, you can try <a href="{{view.url}}/twitter">refresh the page</a>
+      or reseting your Authorization clicking <a href="/twitter/auth?redirect_to={{view.url}}/twitter">here</a>.
+    </p>
+  </div>
+  {% else %}
+    {% include 'actor/templates/twitter_stream.html' %}
+    {% include 'actor/templates/twitter_paging.html' %}
+  {% endif %}
+
+  <p class="tools">
+    {% if feeds %}
+      <a href="{{feeds.0.url}}" class="rss" title="{{feeds.0.title}} ({{feeds.0.type}})">{{feeds.0.title}}</a>
+    {% endif %}
+  </p>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+  {% include 'actor/templates/sidebar_twitter_info.html' %}
+{% endblock %}

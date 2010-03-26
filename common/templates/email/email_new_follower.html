@@ -1,0 +1,16 @@
+{% extends "common/templates/email/base.html" %}
+{% load format %}
+
+{% block body %}
+<h3>
+Hi {{target_full_name}},
+</h3>
+<p>
+{{owner_full_name}} ({{owner_ref.display_nick}}) is now following your {{POST_NAME|plural}} on {{SITE_NAME}}!
+</p>
+<p>
+You may also follow the {{POST_NAME|plural}} of ({{owner_ref.display_nick}}) by
+clicking on the "follow" button on their profile {{email_url}}
+</p>
+{% endblock %}
+

@@ -1,0 +1,21 @@
+{% filter wordwrap:60 %}
+Welcome to {{SITE_NAME}}! Please confirm your email
+
+Thanks for joining {{SITE_NAME}}!
+Could you help us by validating your email address? This gives you
+access to all the functionality  has to offer, including
+notifications about followers. Simply click on the link below (or copy and paste it into your browser)
+to confirm.
+
+..........................................................
+
+{{email_link}}
+
+..........................................................
+
+
+Please do not reply to this message; it was sent from an unmonitored email address.
+
+
+{% include "common/templates/email/signature.txt" %}
+{% endfilter %}

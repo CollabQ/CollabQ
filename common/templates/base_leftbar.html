@@ -1,0 +1,21 @@
+{% extends 'common/templates/base_wide.html' %}
+
+{% block container %}
+<div class="top-corner">
+  <div class="bottom-corner">
+    <div class="content-corner clearfix {% block pageclass %}{% endblock %}">
+      {% block topbar %}
+      {% endblock %}
+      {% if not request.mobile %}
+      <div id="leftbar" class="sidebar leftbar float-left">
+          {% block leftbar %}{% endblock %}
+      </div>
+      {% endif %}
+      <div id="content" class="content float-left">
+        {% block content %}{% endblock %}
+        {% include 'common/templates/footnav.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

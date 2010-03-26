@@ -1,0 +1,51 @@
+{% extends 'common/templates/base_single.html' %}
+{% load nonce %}
+{% block title %}Install Root User{% endblock %}
+{% block content %}
+
+<h1 class="blue">
+  <span>
+    Installation
+  </span>
+</h1>
+{% if not root_user %}
+{% include 'form_error.html' %}
+<form id="rootuser" class="form-inline" action="/install" method="post">
+  {{None|noncefield:"install"}}
+  <div class="field-wrapper">
+    <label>Site Name:</label>
+    <input class="text" type="text" name="site_name" value="{{site_name}}"/>
+  </div>
+  <div class="field-wrapper">
+    <label>Tagline:</label>
+    <input class="text" type="text" name="tagline" value="{{tagline}}"/>
+  </div>
+  <div class="field-wrapper">
+    <label>Root User Mail:</label>
+    <input class="text" type="text" name="root_mail" value="{{root_mail}}"/>
+  </div>
+  <div class="field-wrapper">
+    <label>Root User Password:</label>
+    <input class="text" type="password" name="password" />
+  </div>
+  <div class="field-wrapper">
+    <label>Confirm Password:</label>
+    <input class="text" type="password" name="confirm" />
+  </div>
+  <div class="field-wrapper">
+    <label>Default Channel:</label>
+    <input class="text" type="text" name="default_channel" value="{{default_channel}}"/>
+  </div>
+  <div class="field-wrapper">
+    <label>Post Name:</label>
+    <input class="text" type="text" name="post_name" value="{{post_name}}"/>
+  </div>
+  <div class="buttons">
+    <input type="submit" value="Install"/>
+  </div>
+</form>
+{% else %}
+<p>Root User {{ROOT_NICK}} exists.</p>
+{% endif %}
+
+{% endblock %}

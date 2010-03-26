@@ -1,0 +1,85 @@
+{% extends 'common/templates/base_sidebar.html' %}
+{% load nonce format %}
+{% block title %}Home{% endblock %}
+
+{% block above_container %}
+{% if unconfirmed_email and not flash %}
+<div id="notice" class="notice clearfix">
+  <p>
+  You have not yet confirmed your email address "{{unconfirmed_email}}", if you have not received your confirmation message you can <a href="{% url_for view request %}/settings/email">request another</a>.
+  </p>
+ </div>
+{% endif %}
+{% if first_time %}
+<div id="modal">
+  <h2>
+  Welcome to {{SITE_NAME}}
+  </h2>
+  {% if emailform %}
+  <div>
+    <form id="emailform" method="POST" action="">
+      <div>
+        <label for="email">Please enter your Email:</label>
+        <input id="email" class="text" type="text" name="email" />
+      </div>
+      <div>
+        <input class="button" type="submit" value="Submit" /> or <a class="close" href="#">Skip</a>
+      </div>
+    </form>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+{% endblock %}
+{% block bottomscripts %}
+  {% if loadmodal %}
+  <script type="text/javascript">
+    $(document).ready(function (){
+      $.facebox({div: '#modal'});
+      $(".close").bind('click',function(){
+        $.facebox.close();
+      });
+      $("form").bind("submit", function() {
+        var formemail = $(this)
+        if (formemail.attr("id") == "emailform"){
+          $.post('/user/email', formemail.serialize(), function(data){
+            if (data.message == "success"){
+              $.facebox.close()
+            } else {
+              formemail.find(".error").hide(1000);
+              formemail.prepend('<div class="error" id="error"><ul><li>'+ data.message +'</li></ul></div>');
+            }
+          }, "json");
+          return false
+        }
+        return true;
+      })
+    })
+  </script>
+  {% endif %}
+
+{% endblock %}
+
+{% block content %}
+{% include 'common/templates/message_form.html' %}
+
+{% if not request.mobile %}
+  {% include 'common/templates/subnav_tabs.html' %}
+{% endif %}
+
+<div id='stream'>
+  <h2>Latest {{POST_NAME|plural}} from people you follow!</h2>
+  {% include 'common/templates/stream.html' %}
+  {% include 'common/templates/paging.html' %}
+
+  <p class="tools">
+    {% if feeds %}
+      <a href="{{feeds.0.url}}" class="rss" title="{{feeds.0.title}} ({{feeds.0.type}})">{{feeds.0.title}}</a>
+    {% endif %}
+  </p>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+  {% include 'common/templates/user_sidebar.html' %}
+{% endblock %}

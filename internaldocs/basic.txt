@@ -1,0 +1,101 @@
+ApiMixinModel
+=============
+tiene una función t_api.
+Al parecer usa introspeccion para obtener las properties del objeto.
+Con getattr obtiene los valores y los guarda en un diccionario.
+Esto lo hace con o[prop] = _to_api(value).
+
+_to_api
+-------
+Si es un objeto que tiene el atributo to_api, es una apimixmodel.
+por lo tanto, llama a value.to_api para tener todo serializado.
+Si es una secuencia, entonces crea:
+v = [_to_api(x) for x in v]
+si es un diccionario:
+v = dict([(key, _to_api(value) for (key, value) in v.iteritems()])
+si es un datetime:
+v = str(v)
+
+CachingModel (apimixinmodel)
+============================
+Parece ser una clase Estatica (con algunos metodos de instancia).
+tiene los siguientes metodos:
+
+key_from (cls, **kw) <<statico>>
+------------------
+si la clase tiene el atributo "key_template" hace un reemplazo con 
+los siguientes argumentos de la funcion.
+Retorna None. (no se por que)
+
+_remove_from_cache(self) << de instancia >>
+------------------------
+si esta esta el atributo de clase CachingModel._cache_enabled == True
+si CachingModel._cache.has_key(clsname) ...
+y si CachingModel._cache[clsname].has_key(self._cache_keyname__)
+entonces hace pop(self._cache_keyname__)
+
+ahora, que es self._cache_keyname__ ?
+Pensemos, como esta clase hereda de apimixinmodel, 
+hacemos:
+if not key_name:
+  key_frame = self.key_from(**kw) # kw viene del constructor.
+luego hacemos:
+self._cache_keyname__ = (key_name, parent)
+
+En si usamos el serializador para saber que cachear y que no.
+
+
+put(self)
+---------
+WTF???
+
+save(self)
+----------
+-> put()
+
+delete(self)
+------------
+delete... 
+
+
+DeleteMarkerModel(CachingModel)
+===============================
+
+
+
+OK! let's do it!!!
+
+AbuseReport(CachingModel)
+=========================
+entry # referencia a entry
+actor # referencia a actor de esa entrada
+reports # actor que reporto el abuso
+count # cantidad de reportes
+
+# el key template es el self.entry  :)
+key_template '%(entry)s' 
+
+Activacion(CachingModel)
+========================
+entry # referencia a entry
+content 
+code
+type
+
+key_template = 'activation/%(actor)s/%(type)s/%(content)s'
+
+
+
+
+TEngo que hacer lo siguiente:
+==============================
+cada p.o.box es visto como un channel.
+Tiene su nombre (ya viene con eso)
+y tags.
+
+Para p.o.box hay algunos tags q no pueden faltar.
+como tags de ubicacion.
+tags de tipo (type_po = "people", "Government", "institutions")
+
+
+

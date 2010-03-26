@@ -1,0 +1,67 @@
+{% extends 'channel/templates/settings_base.html' %}
+{% load nonce base %}
+
+{% block title %} Setting Tags{% endblock %}
+
+{% block bottomscripts %}
+  <script type="text/javascript" src="http://{{DOMAIN}}/js/jquery.js"></script>
+  <script type="text/javascript" src="http://{{DOMAIN}}/js/jquery.cookie.js"></script> 
+  <script type="text/javascript" src="http://{{DOMAIN}}/js/jquery.listen.js"> </script> 
+  <script type="text/javascript" src="http://{{DOMAIN}}/js/css.js"></script>
+  <script type="text/javascript" src="http://{{DOMAIN}}/js/tree_component.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+      var treejson = {};
+      $.ajax({
+        url: "http://{{DOMAIN}}/channel/tag/thetree",
+        success: function (data){
+
+          $("#thetree").append(data);// data;
+
+          
+          $("#thetree a").click(function(){
+            // begin strip spaces in tag -------------------------------------
+            var tag = $(this).html();
+            tag_result = ""
+            for (i=0; i < tag.length; i++)
+            {
+              if (!(tag[i] == " "))
+              { 
+                tag_result = tag_result + tag[i]; 
+              }
+            }
+            // end strip spaces ----------------------------------------------
+
+            // begin getting path tag tree -----------------------------------
+            result = "";
+            $.getJSON(
+              "http://{{DOMAIN}}/channel/tag/" + tag_result + "/path",
+              { ajax: true }, 
+              function (data) {
+                for(x=0; x < data.length; x++)
+                { result = result + data[x] + " "; } 
+                $("#tags").attr('value', result);
+              }
+            );
+            // end getting path tag tree -------------------------------------
+            return false;
+          });
+
+
+        }
+      });
+      $("#tree").tree();
+  });
+  </script>
+{% endblock %}
+
+{% block settings %}
+  <center>  
+    <form method="POST" action="">
+      <div id="thetree" style='text-align: left; width: 200px;'></div>
+      <input type="text" id="tags" name="tags" value="{{tags}}"></input>
+      <button type="submit"> Modify </button>
+    </form>
+  </center>
+{% endblock %}

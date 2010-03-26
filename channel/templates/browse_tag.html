@@ -1,0 +1,57 @@
+{% extends 'channel/templates/channel_base.html' %}
+{% load nonce avatar vcard format %}
+
+{# TODO(termie): there is a double line happening at the top of
+                 the page beneath "Channels"
+#}
+{% block path %}
+{% if tagkey %}
+  <a href="/channel?{{filter_url}}{{type_url}}">All</a> &raquo;
+  {% if breadcrumb|length %}
+    {% for tag in breadcrumb %}
+        {% if not forloop.last %}
+          <a href="/channel/browse{{tag.path}}/{{tag.term}}"> {{tag.term}} </a> &raquo;
+        {% else %}
+          <span>{{tag.term}}</span>
+        {% endif %}
+    {% endfor %}
+  {% endif %}
+{% else %}
+Channels
+{% endif %}
+{% endblock %}
+
+{% block channel_body %}
+  {% if ENABLE_CHANNELS %}
+    <div id="group-intro">
+      <p class="centered">
+        <a href="/channel/create">Create a New Channel</a>
+      </p>
+    </div>
+  {% endif %}
+  <div id="top_browse">
+    <div id="filter">
+      {% include 'channel/templates/filters.html' %}
+    </div>
+    <div id="country-tags">
+      <select id="country" name="country">
+        <option value="">Select a Category</option>
+        {% for country in countries %}
+          <option value="{{country.target}}" {% ifequal country.target tagkey %}selected="selected"{% endifequal %}>{{country.target|tag_name}}</option>
+        {% endfor %}
+      </select>
+      <p class="small">You can choose a category</p>
+    </div>
+  </div>
+<div id="browse" class="channels">
+  {% include 'channel/templates/type_tabs.html' %}
+  {% with actors as channel_tiles %}
+    {% include 'channel/templates/channel_tiles.html' %}
+  {% endwith %}
+  {% include 'channel/templates/paging.html' %}
+</div>
+{% endblock %}
+
+{% block related_tags %}
+  {% include 'channel/templates/related_tags.html' %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% load format json %}
+"created_at": {{created_at|escapejson}},
+"id": {{entry.uuid|escapejson}},
+"text":{{entry.extra.content|escapejson}},
+"source":"<a href=\"http:\/\/www.pressgen.com\/\" rel=\"nofollow\">PressGen<\/a>",,
+"truncated":false,
+"in_reply_to_status_id":{{entry_owner.uuid|escapejson}},
+"in_reply_to_user_id":{{owner.normalized_nick|escapejson}},
+"favorited":false,
+"in_reply_to_screen_name":{{owner.display_nick|escapejson}},

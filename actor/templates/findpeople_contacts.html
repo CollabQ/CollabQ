@@ -1,0 +1,24 @@
+{% extends 'actor/templates/people_base.html' %}
+{% load avatar format %}
+{% block title %}Find People{% endblock %}
+{% block people %}
+<div class="path">
+  <h1><a href="{% url_for view request %}/contacts">People</a> / Find People</h1>
+</div>
+<div class="body" id="welcome-contacts">
+  {% include 'form_error.html' %}
+
+  {% if contacts_found %}
+    {% include 'actor/templates/findpeople_form_add_contacts.html' %}
+  {% else %}
+    {% if not contacts_more %}
+      {% include 'actor/templates/findpeople_form_find_contacts.html' %}
+    {% endif %}
+  {% endif %}
+
+  {% if contacts_more %}
+    {% include 'actor/templates/findpeople_form_find_more_contacts.html' %}
+  {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'common/templates/base_single.html' %}
+{% block title %}Replace Tag{% endblock %}
+{% block content %}
+<h2>Tags</h2>
+<form action="" method="POST">
+  <p>
+    <strong style="display:block; float: left; width:65px">Tag</strong>
+    <select id="tags" name="tag">
+      {% for tag in tags %}
+        <option>{{tag}}</option>
+      {% endfor %}
+    </select>
+  </p>
+  <p>
+    <strong style="display:block; float: left; width:65px">New term</strong>
+    <input class="text" name="term" type="text" size="30"/>
+  </p>
+  <p style="padding: 0 0 0 65px;">
+    <input type="submit" value="Change"/>
+  </p>
+</form>
+{% endblock %}

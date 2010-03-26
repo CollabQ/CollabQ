@@ -1,0 +1,64 @@
+<div class="sign-in-connect">
+  <div class="bottom-corner">
+    <div class="content-corner clearfix">
+      <h3 class="text-center">Join with one click!</h3>
+      <a id="google-connect" class="no-text external-connect" href="/openid/google">
+        login in with google
+      </a>
+      <a id="twitter-connect" class="no-text external-connect" href="/twitter/signin?redirect_to=/twitter/processuser">
+        login in with twitter
+      </a>
+      <a id="facebook-connect" class="no-text external-connect" href="#">
+        login in with facebook
+      </a>
+        <p class="text-center">or <a href="/join">sign up</a> with your email address</p>
+    </div>
+  </div>
+</div>
+<p class="front-login clearfix">
+  <span class="text">Already have an account?</span> <a href="/login" id="sign-in-button">Sign In</a>
+</p>
+<div id="modal">
+  <div class="top">
+    <div class="bottom">
+      <form id="loginformfront" action="/login" method="post">
+        {% if redirect_to %}
+        <input type="hidden" name="redirect_to" value="{{redirect_to}}" />
+        {% endif %}
+        <h2 class="float-left">Please login</h2>
+        <div class="field-wrapper">
+          <label for="field-log"><strong>Username:</strong></label>
+          <input id="field-log" class="text" name="log" type="text" tabindex="1" value="{{user_login}}" />
+        </div>
+        <div class="field-wrapper">
+          <label for="field-pwd"><strong>Password:</strong></label>
+          <input id="field-pwd" class="text" name="pwd" type="password" tabindex="2" value="" />
+        </div>
+        <div class="buttons float-left">
+          <div>
+            <input id="sign-in-button" type="submit" class="button no-text" tabindex="4" value="SIGN IN"/>
+          </div>
+          <div id="renember-me">
+            <input type="checkbox" class="checkbox" id="field-rememberme" name="rememberme" tabindex="3" value="1" {% if rememberme %}checked="checked"{% endif %}/> Remember me
+          </div>
+        </div>
+        <div id="forgot" class="float-left">
+          Forgot password?
+          <a href="/login/forgot">click here</a>
+        </div>
+        <h2 class="float-left">Login with one click</h2>
+        <div id="sign-in" class="clearfix float-left">
+          <a id="google-connect" class="no-text connect" href="/openid/google">
+            login in with google
+          </a>
+          <a id="twitter-connect" class="no-text connect" href="/twitter/signin?redirect_to=/twitter/processuser">
+            login in with twitter
+          </a>
+          <a id="facebook-connect" class="no-text connect last" href="#">
+            login in with facebook
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

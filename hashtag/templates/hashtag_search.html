@@ -1,0 +1,52 @@
+{% extends templatebase %}
+{% load nonce format %}
+
+{% block title %}Hashtag Search{% endblock %}
+{% block content %}
+  {% if view %}
+    {% include 'common/templates/message_form.html' %}
+  {% else %}
+    {% include 'hashtag/templates/hasgtag_search_form.html' %}
+  {% endif %}
+<div id="stream" class="clearfix">
+  <h2>Search results for {{tag}}</h2>
+  <ul class="stream">
+  {% ifchanged %}
+    <li class="date"><h3>{{entry.created_at|date:"l, j F Y"}}</h3></li>
+  {% endifchanged %}
+  {% for entry in entries %}
+    {% if entry.entry %}
+      <li class="comment" id="stream-comment-{{entry.uuid}}">
+        <div class="top">
+          <div class="bottom clearfix">
+          {% include "common/templates/stream_comment.html" %}
+          </div>
+        </div>
+      </li>
+    {% else %}
+      <li class="presence" id="stream-{{entry.uuid}}">
+        <div class="top">
+          <div class="bottom clearfix s-{{entry.stream}}">
+          {% include "common/templates/stream_entry.html" %}
+          </div>
+        </div>
+      </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+  {% if more %}
+  <div>
+    Browse: <a href="?page={{next}}#stream-{{last}}">More {{POST_NAME|plural}}</a>
+  </div>
+  {% endif %}
+ </div>
+{% endblock %}
+
+{% if view %}
+{% block sidebar %}
+  {% include 'common/templates/sidebar_location.html' %}
+  {% include 'common/templates/sidebar_info.html' %}
+  {% include 'common/templates/sidebar_contacts.html' %}
+  {% include 'common/templates/sidebar_hashtagsearch.html' %} 
+{% endblock %}
+{% endif %}

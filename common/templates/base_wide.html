@@ -1,0 +1,16 @@
+{% extends 'common/templates/base_navbar.html' %}
+
+{% block containertag %}class="wide"{% endblock %}
+
+{% block container %}
+<div id="content">
+  <div class="top{% if green_top %} b{% endif %}">
+    <div class="bottom">
+      <div class="content-wrapper clearfix">
+        {% block content %}{% endblock %}
+      </div>
+      {% include 'common/templates/footnav.html' %}
+    </div>
+  </div>
+</div>
+{% endblock %}

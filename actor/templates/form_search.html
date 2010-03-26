@@ -1,0 +1,20 @@
+<div class="sidebar-search sidebar-block clearfix">
+  <form id="search" method="GET" action="" class="no-bind" onsubmit="return validate(this);">
+    <input type="text" name="q" id="query"></input>
+    <!--<a id="redirector" href="" onclick="return validate(this)"> Search </a>-->
+    <button class="button" type=submit> Search </button>
+  </form>
+    <div id="message" style="display: none"> </div>
+  <script type="text/javascript">
+  function validate(widget)
+  {
+    val = $("#query").attr('value');
+    if (val.length > 1)
+    {
+      $("#search").attr('action', '/user/search/'+val);
+      return true;
+    }
+  }
+  </script>
+</div>
+

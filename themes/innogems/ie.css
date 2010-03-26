@@ -1,0 +1,2 @@
+.clearfix, .container {display:inline-block;}
+* html .clearfix, * html .container {height:1%;}

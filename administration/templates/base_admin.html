@@ -1,0 +1,50 @@
+{% extends 'common/templates/base_leftbar.html' %}
+{% load format %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block pageclass %}admin{% endblock %}
+
+{% block topbar %}
+  <div id="topbar" class="topbar float-left path">
+      <h1>
+        {% ifnotequal page 'admin' %}
+          <a href="/admin">Administration</a>
+        {% endifnotequal %}
+        {% if area_url %}
+          <a href="{{area_url}}">{{area}}</a>
+        {% endif %}
+        / {{title}}
+      </h1>
+  </div>
+{% endblock %}
+
+{% block leftbar %}
+<div class="menu-wrapper">
+  <h3 class="title">Site</h3>
+  <ul class="menu menu-admin">
+    <li {% ifequal page 'site' %}class='current'{% endifequal %}>
+      <a href="/admin/site" class="item">Site options</a>
+    </li>
+  </ul>
+</div>
+<div class="menu-wrapper">
+  <h3 class="title">Channels</h3>
+  <ul class="menu menu-admin">
+    <li {% ifequal page 'channel' %}class='current'{% endifequal %}>
+    <a href="/admin/channels" class="item">Channels options</a>
+    </li>
+    <li {% ifequal page 'channel_new' %}class='current'{% endifequal %}>
+      <a class="item" href="/admin/channels/new">Create channel</a>
+    </li>
+    <li {% ifequal page 'channel_list' %}class='current'{% endifequal %}>
+      <a class="item" href="/admin/channels/list">List channels</a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block content %}
+  {% block admin_content %}
+  {% endblock %}
+{% endblock %}

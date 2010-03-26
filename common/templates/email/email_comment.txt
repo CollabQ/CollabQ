@@ -1,0 +1,21 @@
+{% filter wordwrap:120 %}
+{% if my_entry %}
+{{from_name}} has posted the following comment to your {{POST_NAME}} "{{entry_title}}":
+{% else %}
+{{from_name}} has posted the following comment to {{entry_actor_name}}'s {{POST_NAME}} "{{entry_title}}":
+{% endif %}
+"{{comment_pretty}}"
+
+To reply to{{my_entry|yesno:" or delete,"}} this comment, click on one of the following links (or copy and paste it to your browser):
+
+................
+
+{{entry_url}}
+
+................
+
+{% include 'common/templates/email/signature.txt' %}
+
+(This email was generated automatically. Please do not reply to it)
+
+{% endfilter %}

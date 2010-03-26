@@ -1,0 +1,30 @@
+{% extends 'common/templates/base_sidebar.html' %}
+{% load nonce avatar vcard %}
+{% block title %}Your Channels{% endblock %}
+
+{% block content %}
+<div class="content-wrapper clearfix">
+  <div class="path">
+    <h1>{% block path %}Channels{% endblock %}</h1>
+  </div>
+  <div class="body">
+    {% block channel_body %}{% endblock %}
+  </div>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+  {% if not request.mobile %}
+    {% block search %}
+      {% include 'channel/templates/form_search.html' %}
+    {% endblock %}
+    {% block related_tags %}
+      <div id="related_tags" class="sidebar-block">
+        <h2>Related Channels</h2>
+        {% include 'channel/templates/related_tags.html' %}
+      </div>
+    {% endblock %}
+  {% else %}
+    {% include 'channel/templates/sidebar_ourpicks.html' %}
+  {% endif %}
+{% endblock %}

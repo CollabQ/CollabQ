@@ -1,0 +1,18 @@
+{% load avatar format %}
+<div class="vcard" id="jaiku:{{actor.nick}}">
+  {% linked_avatar actor "u,contact" request %}
+  <div class="bubble">
+    {# {compile_include presence-light.tpl} #}
+    {% ifequal actor.type "channel" %}
+      <div>
+        <h3><a href="{% url_for actor request %}" title="Channel {{actor.display_nick}}">{{actor.display_nick}}</a></h3>
+      </div>
+    {% else %}
+      <h3>
+        <span class="fn nickname">{{actor.display_nick}}:</span>
+        {% include 'common/templates/presence_line.html' %}
+      </h3>
+    {% endifequal %}
+    <div style="display:none">{{actor.type}}</div>
+  </div>
+</div>

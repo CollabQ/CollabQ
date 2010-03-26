@@ -1,0 +1,18 @@
+{% extends 'openidgae-base.html' %}
+
+{% block title %}OpenID{% endblock %}
+
+{% block content %}
+
+<h2>OpenID</h2>
+
+{% if error_msg %}
+<div id="error">
+{{ error_msg }}
+</div>
+{% endif %}
+
+{% if not lip %}
+ <a href="{% url openidgae.views.LoginPage %}">Login &rarr;</a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% filter wordwrap:120 %}
+Hi, {{fullname}}
+You have a direct message:
+
+ "{{direct_message}}"
+
+To reply to this message, click on the following link (or copy and paste it to your browser):
+
+................
+
+{{email_link}}
+
+................
+
+{% include 'common/templates/email/signature.txt' %}
+
+(This email was generated automatically. Please do not reply to it)
+
+{% endfilter %}

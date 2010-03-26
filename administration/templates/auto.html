@@ -1,0 +1,22 @@
+{% extends 'common/templates/base_single.html' %}
+
+{% block extrameta %}
+{% if redirect %}
+<meta http-equiv="refresh" content="3;url=http://{{DOMAIN}}/{{redirect_url}}">
+{% endif %}
+{% endblock %}
+
+{% block title %}Entries{% endblock %}
+
+{% block content %}
+  <h1>Calling: {{action}}</h1>
+  <dl>
+    <dt>page</dt>
+      <dd>{{page}}</dd>
+    <dt>offset</dt>
+      <dd>{{offset}}</dd>
+    <dt>Output</dt>
+      <dd>{{output}}</dd>
+  </dl>
+  <a href="">{{redirect_url}}</a>
+{% endblock %}

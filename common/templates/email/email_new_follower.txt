@@ -1,0 +1,15 @@
+{% filter wordwrap:60 %}
+
+Hi {{target_full_name}},
+
+{{owner_full_name}} ({{owner_ref.display_nick}}) is now following your chatter on {{SITE_NAME}}!
+
+You may also follow the chatter of ({{owner_ref.display_nick}}) by
+clicking on the "follow" button on their profile {{email_url}}
+
+
+{% include "common/templates/email/signature.txt" %}
+
+Please do not reply to this message; it was sent from an unmonitored email address.
+
+{% endfilter %}

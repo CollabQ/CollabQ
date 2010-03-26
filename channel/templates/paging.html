@@ -1,0 +1,19 @@
+<div class="paging">
+    <span class="start extra">{{start}}</span> -
+    <span class="end extra">{{end}}</span>
+    of <span class="size extra">{{size}}</span>
+    {% ifequal page first %}
+        <span class="first nonlink">First</span> |
+        <span class="prev nonlink">Prev</span> |
+    {% else %}
+        <a href="{{base_url}}{{filter_url}}{{type_url}}&page={{first}}" class="first link">First</a> |
+        <a href="{{base_url}}{{filter_url}}{{type_url}}&page={{prev}}" class="prev link">Prev</a> |
+    {% endifequal %}
+    {% ifequal page last %}
+        <span class="next nonlink">Next</span> |
+        <span class="last nonlink">Last</span>
+    {% else %}
+        <a href="{{base_url}}{{filter_url}}{{type_url}}&page={{next}}" class="next link">Next</a> |
+        <a href="{{base_url}}{{filter_url}}{{type_url}}&page={{last}}" class="last link">Last</a>
+    {% endifequal %}
+</div>

@@ -1,0 +1,33 @@
+{% load avatar format entry %}
+{% for entry in entries %}
+  <item>
+    <title>{{entry.title}}</title>
+    {% if entry.entry %}
+      <description>        
+        <![CDATA[
+        {% include "common/templates/stream_comment.html" %}
+         ]]>
+       </description>
+       <link>{{entry.url}}</link>
+       <guid>{{entry.url}}</guid>
+       <pubDate>{{entry.created_at|date:"r"}}</pubDate>
+       <jaiku:user nick="{{entry.actor_ref.display_nick}}" first_name="{{entry.actor_ref.extra.given_name}}" last_name="{{entry.actor_ref.extra.family_name}}" avatar='{{entry.actor_ref|avatar_url:"t"}}' url="{{entry.actor_ref.url}}" />
+       <jaiku:timesince>{{entry.created_at|je_timesince}} ago.</jaiku:timesince>
+    {% endif %}
+
+    {% ifequal entry.stream_ref.type 'presence' %}     
+      <description>
+        <![CDATA[
+        {% include "common/templates/stream_entry.html" %}
+         ]]>      
+      </description>
+      <link>{{entry.url}}</link>
+      <guid>{{entry.url}}</guid>
+      <pubDate>{{entry.created_at|date:"r"}}</pubDate>
+      <jaiku:user nick="{{entry.actor_ref.display_nick}}" first_name="{{entry.actor_ref.extra.given_name}}" last_name="{{entry.actor_ref.extra.family_name}}" avatar='{{entry.actor_ref|avatar_url:"t"}}' url="{{entry.actor_ref.url}}" />
+      <jaiku:timesince>{{entry.created_at|je_timesince}} ago.</jaiku:timesince>
+      <jaiku:comment count="{{entry.extra.comment_count}}" />
+    {% endifequal %}
+  </item>
+{% endfor %}
+         

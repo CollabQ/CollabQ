@@ -1,0 +1,14 @@
+<ul class="clearfix">
+  {% if request.user %}
+  <li{% ifequal filter 'member' %} class="current" {% endifequal %}>
+    <a href="{{base_url}}filter=member{{type_url}}">
+      <span>{% ifequal nick owner.nick %}Your{% else  %}{{owner.display_nick}}'s{% endifequal %} Channels</span>
+    </a>
+  </li>
+  {% endif %}
+  <li{% ifequal filter 'all' %} class="current"{% endifequal %}>
+    <a href="{{base_url}}filter=all{{type_url}}">
+      <span>All Channels</span>
+    </a>
+  </li>
+</ul>

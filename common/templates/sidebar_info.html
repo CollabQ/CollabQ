@@ -1,0 +1,9 @@
+{% load format %}
+<div id="info" class="sidebar-block">
+  <dl>
+      <dt><a href="{% url_for view request %}/followers">Followers</a></dt>
+          <dd>{{followers_count}}</dd>
+      <dt><a href="{% url_for view request %}/contacts">Following</a></dt>
+          <dd>{{contacts_count}}</dd>
+  </dl>
+</div>

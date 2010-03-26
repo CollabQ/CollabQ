@@ -1,0 +1,33 @@
+{% extends 'administration/templates/base_admin.html' %}
+{% load format nonce %}
+
+{% block admin_content %}
+<div class="content-wrapper">
+  {% include 'form_error.html' %}
+  <form id="rootuser" class="form-inline" action="/admin/site" method="post">
+    {{request.user|noncefield:"site"}}
+    <fieldset>
+      <legend>Settings</legend>
+      <div class="field-wrapper">
+        <label>Site Name:</label>
+        <input class="text" type="text" name="site_name" value="{{SITE_NAME}}"/>
+      </div>
+      <div class="field-wrapper">
+        <label>Tagline:</label>
+        <input class="text" type="text" name="tagline" value="{{TAGLINE}}"/>
+      </div>
+      <div class="field-wrapper">
+        <label>Post Name:</label>
+        <input class="text" type="text" name="post_name" value="{{POST_NAME}}"/>
+      </div>
+      <div class="field-wrapper">
+        <label>Site Description:</label>
+        <textarea class="textarea" name="site_description">{{SITE_DESCRIPTION}}</textarea>
+      </div>
+      <div class="buttons">
+        <input type="submit" value="Update"/>
+      </div>
+    </fieldset>
+  </form>
+</div>
+{% endblock %}

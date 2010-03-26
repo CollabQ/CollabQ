@@ -1,0 +1,10 @@
+<div id="related-tags" class="clearfix sidebar-block">
+  <h2>Sub Category Tags</h2>
+  {% if related_tags %}
+    {% for tag in related_tags %}
+      <p> <a href='/channel/browse{{tag.path}}/{{tag.term}}'>{{ tag.term }}</a> </p>
+    {% endfor %}
+  {% else %}
+    <p> Don't have related tags </p>
+  {% endif %}
+</div>

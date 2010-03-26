@@ -1,0 +1,14 @@
+{% extends 'common/templates/base_single.html' %}
+{% block title %}Installing Tags{% endblock %}
+{% block content %}
+<h2>Regions</h2>
+{% for region in regions %}
+  <p>
+    {{region.target}}
+  </p>
+{% endfor %}
+<h2>Tags</h2>
+{% for tag in tags %}
+  <p>{{tag}}<p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,42 @@
+#front-header #logo {
+  margin: 0px;
+  padding: 28px 20px;
+}
+.users-horizontal {
+  width:450px;
+}
+#users li {
+  margin:0 10px 1.5em 0;
+}
+div.sidebar-search {
+  background: transparent url(bg-sidebar-search.gif) no-repeat scroll 0 0;
+  margin: 0 -40px 1em -10px;
+}
+div#sidebar h2, div#side-nav h2 {
+  background: transparent url(bg-sidebar-title.gif) no-repeat scroll 0 0;
+}
+div#sidebar div#contacts h2,
+div#sidebar div#userpoboxes h2,
+div#sidebar div#children h2 {
+  margin: 0 -40px 1em -10px;
+}
+div#content div.main a.avatar {
+  background: transparent url(bg-avatar.gif) no-repeat scroll 0 0
+}
+ul.stream li.presence img.photo,
+ul.stream li.comment img.photo,
+ul.stream li.private img.photo {
+  background: transparent url(bg-stream-avatar.gif) no-repeat scroll 0 0
+}
+div#comments ul.stream li.comment img.photo {
+  background: transparent url(bg-comment-avatar.gif) no-repeat scroll 0 0
+}
+#search-channels-sidebar {
+  margin: 0  -40px 1em -20px;
+  padding: 1.5em 30px 1.5em 20px;
+}
+div#related-tags h2 {
+  margin:0 -40px 0 -20px;
+  padding: 14px 30px 5px;
+  width:190px;
+}

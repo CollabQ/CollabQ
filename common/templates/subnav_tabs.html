@@ -1,0 +1,20 @@
+<div id="sub-nav-wrapper">
+  <div class="bg-left">
+    <div class="bg-right">
+      <ul id="sub-nav">
+        <li class="first {% ifequal subtab 'overview' %}current{% endifequal %}">
+          <a href="{{view.url}}/overview">Home</a>
+        </li>
+        <li class="{% ifequal subtab 'mentions' %}current{% endifequal %}">
+          <a href="{{view.url}}/mentions">@{{view.display_nick}}</a>
+        </li>
+        <li class="{% ifequal subtab 'dm' %}current{% endifequal %}">
+          <a href="/inbox">Direct Messages</a>
+        </li>
+        <li class="{% ifequal subtab 'twitter' %}current{% endifequal %}">
+          <a href="{{view.url}}/twitter">Twitter</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

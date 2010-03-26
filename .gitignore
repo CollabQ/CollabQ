@@ -1,0 +1,9 @@
+*.elc
+*.pyc
+*~
+*.zip
+*.yaml
+*.bak
+*.orig
+*.swp
+nbproject/

@@ -1,0 +1,15 @@
+{% load format %}
+<div class='info'>
+  <h2>Twitter Info</h2>
+  <p>@<a href="http://twitter.com/{{user_info.screen_name}}">{{user_info.screen_name}}</a> | <a href="{{view.url}}/settings/twitter">settings</a></p>
+  <div id="info">
+    <dl>
+      <dt><a href="http://twitter.com/{{user_info.screen_name}}">Updates</a></dt>
+          <dd>{{user_info.statuses_count}}</dd>
+      <dt><a href="http://twitter.com/followers">Followers</a></dt>
+          <dd>{{user_info.followers_count}}</dd>
+      <dt><a href="http://twitter.com/friends">Following</a></dt>
+          <dd>{{user_info.friends_count}}</dd>
+    </dl>
+  </div>
+</div>

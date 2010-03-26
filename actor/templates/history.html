@@ -1,0 +1,82 @@
+{% extends 'common/templates/base_sidebar.html' %}
+
+{% load nonce avatar vcard actor format %}
+
+{% block title %}
+  {% ifequal request.user.nick view.nick %}
+  Profile
+  {% else %}
+  {{ view.display_nick }}'s Profile
+  {% endifequal %}
+{% endblock %}
+{% comment %}
+{% block flash %}
+  {% if not request.user %}
+    <div id="profile-sign-up" class="notice clearfix">
+      <div class="right" style="width:210px;float:right">
+        <a class="btn" href="/join">&nbsp;</a>
+        <span style="display: block; float:right; width:210px; text-align:center;">
+          Already using {{SITE_NAME}}? <a href="http://{{DOMAIN}}/login?redirect_to=http://{{request.META.HTTP_HOST}}{{request.META.PATH_INFO}}">Sign In</a>
+        </span>
+      </div>
+      <h2>
+          This is {{ view.display_nick }}'s Profile. Join {{SITE_NAME}} and start following {{ view.display_nick }}.
+      </h2>
+      <p>{{SITE_DESCRIPTION}}</p>
+    </div>
+  {% endif %}
+{% endblock %}
+{% endcomment %}
+
+{% block content %}
+  {% ifequal request.user.nick view.nick %}
+    {% include 'common/templates/message_form.html' %}
+  {% else %}
+  {% include 'form_error.html' %}
+  <div class="main">
+    <div class="vcard clearfix" id="profile">
+      {% with view as actor %}
+        {% include 'common/templates/vcard_full.html' %}
+      {% endwith %}
+
+      {% if request.user %}
+        {% if user_is_contact %}
+        <p class="contact clearfix">
+          <span>Following the {{POST_NAME|plural}} of {{view.display_nick}}</span><span>{% actor_remove_contact request.user request.user view %}</span>
+        </p>
+        {% else %}
+        <p class="contact clearfix">
+          {% actor_add_contact_long request.user request.user view %} the {{POST_NAME|plural}} of {{view.display_nick}}
+        </p>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+{% endifequal %}
+
+{% if not request.mobile %}
+  {% ifequal view.nick request.user.nick %}
+    {% include 'common/templates/subnav_tabs.html' %}
+  {% endifequal %}
+{% endif %}
+
+
+<div id='stream' class="hide-avatar">
+  {% ifequal request.user.nick view.nick %}
+    <h2>Latest {{POST_NAME|plural}} from You!</h2>
+  {% else %}
+    <h2>Latest {{POST_NAME|plural}} from {{ view.display_nick }}!</h2>
+  {% endifequal %}
+  {% include 'common/templates/stream.html' %}
+  {% include 'common/templates/paging.html' %}
+  {% include 'common/templates/feeds.html' %}
+</div>
+{% endblock %}
+
+{% block sidebar %}
+{% if not user_is_private %}
+  {% include 'common/templates/user_sidebar.html' %}
+{% else %}
+  {% include 'actor/templates/sidebar_privateuser.html' %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% load format %}
+<div id="toptags">
+  {% if owner.extra.country_tag %}
+    <a class="toptag" href="/channel/browse{{owner.extra.country_tag}}" title="United States of America"><span>{{owner.extra.country_tag|tag_name}}</span></a>
+  {% else %}
+    <a class="toptag" href="/channel/browse/tag_geo/North America/United States" title="United States of America"><span>USA</span></a>
+  {% endif %}
+  <a class="toptag last" href="/channel/browse/tag_country/Global" title="Global"><span>Global</span></a>
+</div>
+<div id="country-tags">
+  <select id="country" name="country">
+    <option value="">Select a country</option>
+    {% for country in countries %}
+      <option value="{{country.target}}" {% ifequal country.target tagkey %}selected="selected"{% endifequal %}>{{country.target|tag_name}}</option>
+    {% endfor %}
+  </select>
+</div>

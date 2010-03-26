@@ -1,0 +1,38 @@
+{% extends 'common/templates/base_sidebar.html' %}
+{% load nonce format %}
+{% block title %}@{{view.display_nick}}{% endblock %}
+
+{% block above_container %}
+{% if unconfirmed_email and not flash %}
+<div class="notice">
+  <p>
+  You have not yet confirmed your email address "{{unconfirmed_email}}", if you have not received your confirmation message you can <a href="{% url_for view request %}/settings/email">request another</a>.
+  </p>
+ </div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% include 'common/templates/message_form.html' %}
+
+{% if not request.mobile %}
+  {% include 'common/templates/subnav_tabs.html' %}
+{% endif %}
+
+<div id='stream'>
+  <h2>{{POST_NAME|plural}}ions mentioning @{{view.display_nick}}</h2>
+
+  {% include 'common/templates/stream.html' %}
+  {% include 'common/templates/paging.html' %}
+
+  <p class="tools">
+    {% if feeds %}
+      <a href="{{feeds.0.url}}" class="rss" title="{{feeds.0.title}} ({{feeds.0.type}})">{{feeds.0.title}}</a>
+    {% endif %}
+  </p>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+  {% include 'common/templates/user_sidebar.html' %}
+{% endblock %}

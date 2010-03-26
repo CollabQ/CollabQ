@@ -1,0 +1,59 @@
+{% extends 'common/templates/base_sidebar.html' %}
+{% load nonce avatar vcard base format %}
+{% load format %}
+{% block title %}Twitter trends{% endblock %}
+{% block content %}
+{% include 'channel/templates/channel_form.html' %}
+{% if not request.mobile %}
+  {% include 'channel/templates/channel_tabs.html' %}
+{% endif %}
+<h1>Twitter trends</h1>
+{% if twitter_error %}
+  <div class="highlight">
+    <p>
+      There was some problems synchronizing with your twitter account, you can try <a href="{{view.url}}/twitter">refresh the page</a>.
+    </p>
+  </div>
+{% else %}
+  <ul class="stream">
+  {% for entry in entries %}
+    <li class="presence" id="twitter-{{entry.id}}">
+      <div class="top">
+        <div class="bottom clearfix s-{{entry.id}}">
+          <a href="http://twitter.com/{{entry.from_user}}" class="url" target="_blank">
+            <img height="50" width="50" alt="{{entry.from_user}}" class="photo" src="{{entry.profile_image_url}}"/>
+          </a>
+          <h3>
+            <span class="actor-link">
+              <a href="http://twitter.com/{{entry.from_user}}" class="url">
+                {{entry.from_user}}
+              </a>
+            </span>
+             <span>{{entry.text|format_fancy|format_links|urlize}}</span>
+          </h3>
+          <p class="meta">
+            {{entry.created_at|utc_timesince}} ago
+            from {% autoescape off %}{{entry.source}}{% endautoescape %}
+          </p>
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+  </ul>
+  <div class="paging">
+    {% if more %}
+      Browse:
+      <a href="{{view.url}}/twitter?page={{more}}">
+        More
+      </a>
+    {% endif %}
+  </div
+{% endif %}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'channel/templates/sidebar_profile.html' %}
+{% include 'common/templates/sidebar_members.html' %}
+{% include 'channel/templates/sidebar_userpoboxes.html' %}
+{% include 'channel/templates/sidebar_childrentags.html' %}
+{% endblock %}

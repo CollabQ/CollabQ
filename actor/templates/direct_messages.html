@@ -1,0 +1,58 @@
+{% extends 'common/templates/base_sidebar.html' %}
+{% load nonce avatar vcard actor format entry %}
+{% block title %}
+    Your Inbox
+{% endblock %}
+
+{% block content %}
+
+{% include 'common/templates/dm_form.html' %}
+
+{% if not request.mobile %}
+  {% include 'common/templates/subnav_tabs.html' %}
+{% endif %}
+
+<div id='stream'>
+  {% ifequal inbox 'inbox' %}
+    <h2>Direct messages sent to you</h2>
+  {% endifequal %}
+  {% ifequal inbox 'sent' %}
+    <h2>Direct messages you've sent</h2>
+  {% endifequal %}
+  <ul class="tabs clearfix">
+    <li {% ifequal inbox 'inbox' %}class='current'{% endifequal %}>
+      <a class="" href="/inbox">Inbox</a>
+    </li>
+    <li {% ifequal inbox 'sent' %}class='current'{% endifequal %}>
+      <a class="" href="/inbox/sent">Sent</a>
+    </li>
+  </ul>
+  <ul class="stream">
+  {% for entry in entries %}
+    <li id="stream-{{entry.uuid}}"
+        class="private {% ifequal inbox 'inbox' %}
+        {% ifequal entry.extra.status 'unreaded' %}unreaded{% endifequal %}
+        {% endifequal %}">
+      <div class="top">
+        <div class="bottom clearfix s-{{entry.stream}}">
+          <span style="display:none">{{entry.extra.status}}</span>
+        {% include "common/templates/stream_private.html" %}
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+  </ul>
+  {% include 'common/templates/paging.html' %}
+
+  <p class="tools">
+    {% if feeds %}
+      <a href="{{feeds.0.url}}" class="rss" title="{{feeds.0.title}} ({{feeds.0.type}})">{{feeds.0.title}}</a>
+    {% endif %}
+  </p>
+</div>
+
+{% endblock %}
+
+{% block sidebar %}
+  {% include 'common/templates/user_sidebar.html' %}
+{% endblock %}

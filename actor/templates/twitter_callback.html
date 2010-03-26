@@ -1,0 +1,13 @@
+{% extends 'common/templates/base_single.html' %}
+
+{% block title %}Testing Tweet{% endblock %}
+{% block content %}
+  <p>Autoclose</p>
+  <script type="text/javascript">
+     var openerDoc = window.opener.document;
+     var checkbox  = openerDoc.getElementById("twitter");
+     checkbox.checked = true;
+     checkbox.className = 'auth'
+     window.close()
+  </script>
+{% endblock %}

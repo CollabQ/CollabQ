@@ -1,0 +1,9 @@
+{% load json format %}
+[
+  {% for tag in tags %}
+  {
+    "caption":{{tag|tag_name|escapejson}},
+    "value":{{tag|escapejson}}
+  }{% if not forloop.last %},{% endif %}
+  {% endfor %}
+]

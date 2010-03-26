@@ -1,0 +1,65 @@
+{% load nonce %}
+{% load presence %}
+{% load format %}
+
+{% if is_owner or presence %}
+<div class='location sidebar-block'>
+  <h2 class="fullname">
+    <span class="title-content">
+      {% if view.extra.given_name %}
+        {% if view.extra.family_name %}
+          <span class="given-name">{{view.fullname}}</span>
+        {% else %}
+          <span class="username">{{view.given_name}}</span>
+        {% endif %}
+      {% else %}
+        <span class="username">{{view.display_nick}}</span>
+      {% endif %}
+    </span>
+  </h2>
+  <div class="sidebar-block-content">
+  {% if view.extra.bio %}
+    <p>
+    <strong>Bio:</strong> {{view.extra.bio}}
+    </p>
+  {% endif %}
+  {% if view.extra.page %}
+    <p>
+    <strong>Web:</strong> <a href="{{view.extra.page|urlexternalize}}" > {{view.extra.page|format_shorter}} </a>
+    </p>
+  {% endif %}
+  {% if presence and presence.extra.location %}
+    <p>
+      <strong>Location:</strong>
+      <span id='current-location'>{{presence.extra.location|location}}</span>
+      {% comment %}
+      {% if is_owner %}
+        | 
+        <a href='#form-location' id='set-location'>Change</a>
+      {% endif %}
+      {% endcomment %}
+    </p>
+  {% else %}
+    {% if is_owner %}
+      <p>
+        <strong>Location:</strong>
+        <a href='#form-location' id='set-location'>Where are you now?</a>
+      </p>
+    {% endif %}
+  {% endif %}
+    <form action='' id='form-location' method='post'>
+      <div>
+        <input type='text' name='location' id='loc' 
+               value='{{presence.extra.location|location}}'/>
+      </div>
+      <div class='buttons'>
+        {{request.user|noncefield:"presence_set"}}
+        <input type='hidden' name='presence_set' />
+        <input type='hidden' name='nick' value='{{request.user.nick}}' />
+        <input type='submit' value='Post'/>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endif %}

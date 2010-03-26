@@ -1,0 +1,103 @@
+{% load avatar nonce format %}
+
+{% if not request.user.spam %}
+<div id="form-message" class="main clearfix {% block classmessage %}{% endblock %}">
+  {% include 'form_error.html' %}
+  <form action="" method="POST" class="clearfix">
+    {% block channel_title %}{% endblock %}
+    {% if not request.mobile %}
+      <a class="avatar" href="{{request.user.url}}/settings/photo">
+        {{ request.user|avatar:"f" }}
+      </a>
+    {% endif %}
+    <div id="form-wrapper" class="form-message clearfix">
+      <div class="top-message clearfix">
+        {% block message_title %}
+        <h1>What's going on?</h1>
+        {% endblock %}
+        {% if not request.mobile %}
+        <p id="counter">
+          <span class="num">
+            {% if unauth %}
+              {{MAX_POST_LENGTH}}
+            {% else %}
+              {% ifequal area "actor-twitter" %}
+                {{MAX_TWITTER_LENGTH}}
+              {% else %}
+                {% ifequal tab 'channel-twitter' %}
+                  {{MAX_TWITTER_LENGTH}}
+                {% else %}
+                  {% if twitter_options.cc_twitter %}
+                    {{MAX_TWITTER_LENGTH}}
+                  {% else %}
+                    {{MAX_POST_LENGTH}}
+                  {% endif %}
+                {% endifequal %}
+              {% endifequal %}
+            {% endif %}
+          </span> characters left
+        </p>
+        {% endif %}
+        <p id="message-container">
+          <label for="message" id="message-label">Type your new message here!</label>
+          <textarea id="message" name="message" rows="4" cols="25">{% if message %}{{ message|escape }}{% else %}{% if not request.mobile %}Type your new message here{% endif %}{% endif %}</textarea>
+        </p>
+        <p id="latest">
+          {% if latest %}
+            <strong>Latest:</strong>
+            {% if latest.entry %}
+              {{latest.extra.content|pobox_escape|format_shorter:"60"}}
+            {% else %}
+              {{latest.extra.title|pobox_escape|format_shorter:"60"}}
+            {% endif %}
+          {% endif %}
+        </p>
+        <p class="buttons">
+          <span id="cc">
+            <strong>CC:</strong>
+            <input id="twitter" name="twitter" type="checkbox" value="1"
+            {% if unauth %}
+              class="unauth"
+            {% else %}
+              {% ifequal area "actor-twitter" %}
+                checked="checked"
+              {% else %}
+                {% ifequal tab 'channel-twitter' %}
+                  checked="checked"
+                {% else %}
+                  {% if twitter_options.cc_twitter %}checked="checked"{% endif %}
+                {% endifequal %}
+              {% endifequal %}
+            {% endif %}/>
+            Twitter | <a id="twitter_settings" href="{{view.url}}/settings/twitter">Settings</a>
+          </span>
+          <input type="hidden" id="location" name="location" value="{{ request.user.extra.location }}"/>
+          <input type="submit" value="Post" class="button"/>
+          <input type="hidden" name="nick" value="{{request.user.nick}}" />
+          {% ifequal view.type 'user' %}
+          {{request.user|noncefield:"post"}}
+          <input type="hidden" name="post" value="" />
+          {% else %}
+          {{request.user|noncefield:"channel_post"}}
+          <input type="hidden" name="channel_post" value="" />
+          <input type="hidden" name="channel" value="{{view.nick}}" />
+          {% endifequal %}
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="main-bottom">
+  &nbsp;
+</div>
+{% else %}
+<div class="main">
+  <h3>Posting suspended</h3>
+  <p>
+  Your posting rights have been suspended because your activities triggered our spam watchdog. If you think this was a mistake, please contact us by email at <a href="mailto:support@{{HOSTED_DOMAIN}}">support@{{HOSTED_DOMAIN}}</a> and we'll sort out your case.
+  </p>
+</div>
+<div class="main-bottom">
+  &nbsp;
+</div>
+{% endif %}

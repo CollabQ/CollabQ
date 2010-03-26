@@ -1,0 +1,41 @@
+{% extends 'common/templates/base_sidebar.html' %}
+{% load nonce avatar vcard format %}
+
+{% block content %}
+  <div class="content-wrapper clearfix">
+    {% block people %}
+    {% endblock %}
+  </div>
+{% endblock %}
+
+{% block sidebar %}
+  {% block side-nav %}
+    {% include "actor/templates/form_search.html" %}
+  <div id="side-nav" class="sidebar-block">
+    <ul>
+      <li>
+      <a href="{% url_for view request %}/contacts">
+      {{whose}}
+      {% ifequal request.user.nick view.nick %} are {% else %} is {% endifequal %}following</a>
+      </li>
+      <li>
+      <a href="{% url_for view request %}/followers">
+      {{whose}}{% ifequal request.user.nick view.nick %}r{% else %}'s{% endifequal %}
+      followers</a>
+      </li>
+      {% if request.user %}
+      <li>
+        <a href="{% url_for view request %}/invite">Invite friends</a>
+      </li>
+      <li>
+        <a href="{% url_for view request %}/findpeople">Find People</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+  <div style="display:none">
+    {{nick}}
+  </div>
+
+  {% endblock %}
+{% endblock %}

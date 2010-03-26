@@ -1,0 +1,15 @@
+{% extends "common/templates/email/base.html" %}
+{% block body %}
+<h3>Welcome to {{SITE_NAME}}! Please confirm your email</h3>
+<p>
+Thanks for joining {{SITE_NAME}}!<br/>
+Could you help us by validating your email address? This gives you
+access to all the functionality  has to offer, including
+notifications about followers. Simply click on the link below
+(or copy and paste it into your browser)
+to confirm.
+</p>
+<p class="highlight" style="background:#fff; padding:1em 2em;">
+  {{email_link}}
+</p>
+{% endblock %}

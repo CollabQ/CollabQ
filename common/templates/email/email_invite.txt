@@ -1,0 +1,12 @@
+{% filter wordwrap:120 %}
+{{full_name}} ({{nick_name}}) wants to xpress forward with you on {{SITE_NAME}}.
+
+About {{SITE_NAME}}:
+{{SITE_NAME}} is the easiest way to discover and share the latest buzz via local channels & more...
+To find out more about {{SITE_NAME}} visit {{accept_url}}
+
+Thank you,
+- The {{SITE_NAME}} Team
+
+Please do not reply to this message; it was sent from an unmonitored email address.
+{% endfilter %}

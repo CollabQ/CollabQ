@@ -1,0 +1,37 @@
+{% extends 'common/templates/base_single.html' %}
+
+{% block title %}Google Friend Connect{% endblock %}
+{% block content %}
+<h2>Account Details</h2>
+<form id="signup" class="clearfix" action="/join" method="post">
+  <div class="highlight">
+    <label for="nick"><strong>Username</strong></label>
+    <input type="text" name="nick" id="nick" maxlength="24" class="text bold" value="{{nick}}"/>
+    <p class="help">
+    Please use only letters and numbers.
+    </p>
+  </div>
+  <div>
+    <label><strong>Type</strong></label>
+    <div class="radiobuttons">
+      <input id="individual" type="radio" name="account_type" value="individual" checked="checked" /><label for="individual">Individual</label>
+      <input id="business" type="radio" name="account_type" value="business" /><label for="business">Business</label>
+      <input id="ngo" type="radio" name="account_type" value="ngo" /><label for="ngo">Non-Gov Org</label>
+      <input id="goverment" type="radio" name="account_type" value="goverment" /><label for="goverment">Gov Org</label>
+    </div>
+  </div>
+  <div class="radio">
+    <p>
+      By clicking "Create my account" you are indicating that you are over 13 years of age and
+      have read and agreed to {{SITE_NAME}}'s <a href="/terms">Terms of Use</a> &amp; <a href="/privacy">Privacy Policy</a>.
+    </p>
+  </div>
+  <div class="buttons">
+    <input type="hidden" name="email" id="email" class="text" value="{{email}}" maxlength="70"/>
+    <input type="hidden" name="first_name" id="first_name" class="text" value="{{firstname}}"/>
+    <input type="hidden" name="last_name" id="last_name" class="text" value="{{lastname}}"/>
+    <input type="hidden" name="fromopenid" id="fromopenid" class="text" value="1"/>
+    <button class="bigblue"><span><em>Create my account</em></span></button>
+  </div>
+</form>
+{% endblock %}

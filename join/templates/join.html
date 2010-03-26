@@ -1,0 +1,20 @@
+{% extends 'common/templates/base_single.html' %}
+{% load format %}
+
+{% block bodytag %}class="single signup"{% endblock %}
+
+{% block login %}
+      Already a member? <a href="/login">Sign in</a>
+{% endblock %}
+
+{% block title %}Join Now{% endblock %}
+{% block content %}
+  <h1 class="blue" ><span>Create your free account</span></h1>
+  {% include 'join/templates/form_join.html' %}
+
+  <p style="padding:0 0 0 140px">
+    <a href="{% url_for DOMAIN request %}">Return to Home</a>
+  </p>
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head><title>{{subject}}</title>
+</head>
+<body>
+  <div id="wrapper" style="background:#efefef;color:#141E22;font-family:Arial,Helvetica,sans-serif;font-size:100%;line-height:1.4em;padding:1em 2em;">
+    <div class="top" style="height:10px;background:#fff">
+      <img style="float:left" src="http://{{DOMAIN}}/themes/pobox/bg-email-corner-topleft.png" />
+      <img style="float:right" src="http://{{DOMAIN}}/themes/pobox/bg-email-corner-topright.png" />
+    </div>
+    <div id="container" style="text-align:left;background:#fff; padding:1em 2em;">
+      <div id="header" style="margin:0 0 1em">
+        <a href="{{DOMAIN}}" style="font-size:2.5em; color:#222; text-decoration:none;">
+          <img style="border:0pc solid #fff;" src="http://{{DOMAIN}}/themes/innogems/logo-big.png" alt="{{SITE_NAME}}"/>
+        </a>
+      </div>
+      <div id="content" style="background:#f8f8f8;padding:1em 2em;margin:0 0 1em;">
+        {% block body %}
+        {% endblock %}
+      </div>
+      <div id="extra" class="extra">
+        <p class="signature"><strong>The {{SITE_NAME}} Team</strong></p>
+        <hr></hr>
+        <p class="small" style="font-size: 0.8em; margin-bottom: 1.875em; line-height: 1.875em;">
+          Please do not reply to this message; it was sent from an unmonitored email address.
+        </p>
+      </div>
+      <div id="footer" style="font-size:0.75em;">
+        &#169; {% now "Y" %} {{SITE_NAME}}
+        <a href="http://{{DOMAIN}}/about" style="color:#009BC7; text-decoration:none;">About</a> |
+        <a href="http://{{DOMAIN}}/channel/support" style="color:#009BC7; text-decoration:none;">Support</a> |
+        <a href="http://{{DOMAIN}}/privacy" style="color:#009BC7; text-decoration:none;">Privacy</a> |
+        <a href="http://{{DOMAIN}}/terms" style="color:#009BC7; text-decoration:none;">Terms of Service</a>
+      </div>
+    </div>
+    <div class="bottom" style="height:10px;background:#fff">
+      <img style="float:left" src="http://{{DOMAIN}}/themes/pobox/bg-email-corner-bottomleft.png" />
+      <img style="float:right" src="http://{{DOMAIN}}/themes/pobox/bg-email-corner-bottomright.png" />
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% if flash %}
+<div id="notice" class="notice clearfix">
+  <a href="#" class="action-close" rel="notice">Close</a>
+  <p>
+  {{flash}}
+  </p>
+</div>
+{% endif %}
+{% if flasherror %}
+<div class="error notice">
+  {% for error in flasherror %}
+    <p>
+    {{error}}
+    </p>
+  {% endfor %}
+</div>
+{% endif %}

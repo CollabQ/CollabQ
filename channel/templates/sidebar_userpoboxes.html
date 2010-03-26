@@ -1,0 +1,22 @@
+{% load format %}
+{% if request.user %}
+<div id="userpoboxes">
+  <h2>Your Channels</h2>
+  {% if channels %}
+    {% for channel in channels %}
+      <a href="{% url_for channel request %}" title="Channel {{channel.display_nick}}">
+        {{channel.display_nick}}</a>{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+
+    {% if channels_more %}
+      <p class="more">
+        <a href="/channel?filter=member">&#8250; More</a>
+      </p>
+    {% endif %}
+  {% else %}
+    <p>
+      No channels yet.
+    </p>
+  {% endif %}
+</div>
+{% endif %}

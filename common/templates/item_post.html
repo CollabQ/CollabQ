@@ -1,0 +1,34 @@
+{# the main post section for actor and channel item pages without the #}
+{# 'x posted' #}
+
+{% load nonce avatar format entry %}
+<div id="current-stream" class="clearfix">
+    {% if not request.mobile %}
+      <a class="avatar" href="{{entry.actor_ref.url}}">
+        {{ entry.actor_ref|avatar:"f" }}
+      </a>
+    {% endif %}
+  <h1>
+    {% ifnotequal entry.owner entry.actor %}
+    {% actor_link entry.actor_ref request %} posted to {% actor_link entry.owner_ref request %}:
+    {% else %}
+    {% actor_link entry.owner_ref request %} said:
+    {% endifnotequal %}
+  </h1>
+  <div class="top"><div class="bottom">
+    <div style="display:none">{{owner}}</div>
+    <h2>
+      <strong>
+        {{entry.extra.title|format_fancy|format_links|format_actor_links|urlize}}
+      </strong>
+    </h2>
+    {# TODO photo stuff here #}
+    {# TODO url stuff here #}
+    <p class="meta">
+      {# TODO presence source #}
+      {{entry.created_at|je_timesince}} ago.
+      {% entry_remove request.user entry %}
+      {% entry_mark_as_spam request.user entry %}
+    </p>
+  </div></div>
+</div>

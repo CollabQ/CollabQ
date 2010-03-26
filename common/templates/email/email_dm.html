@@ -1,0 +1,15 @@
+{% extends "common/templates/email/base.html" %}
+
+{% block body %}
+  <h3>Hi, {{fullname}}</h3>
+  <p>
+    You have a direct message:
+  </p>
+  <p class="highlight" style="background:#fff; padding:1em 2em;">
+    "{{direct_message}}"
+  </p>
+  <p>To reply to this message, click on the following link (or copy and paste it to your browser):</p>
+  <p class="highlight" style="background:#fff; padding:1em 2em;">
+    {{email_link}}
+  </p>
+{% endblock %}

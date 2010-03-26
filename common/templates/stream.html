@@ -1,0 +1,75 @@
+{% load avatar format entry %}
+<ul class="stream {% if hide_avatar %}stream-hide-avatar{% endif %}">
+
+{% for entry in entries %}
+  {% comment %}
+  {% if not notdate %}
+  {% ifchanged %}
+    <li class="date"><h3>{{entry.created_at|date:"l, j F Y"}}</h3></li>
+  {% endifchanged %}
+  {% endif %}
+  {% endcomment %}
+
+  {% if entry.entry %}
+  <li class="comment" id="stream-comment-{{entry.uuid}}">
+    <div class="top">
+      <div class="bottom clearfix">
+      {% include "common/templates/stream_comment.html" %}
+      </div>
+    </div>
+  </li>
+  {% endif %}
+
+  {% ifequal entry.stream_ref.type 'presence' %}
+  <li class="presence" id="stream-{{entry.uuid}}">
+    <div class="top">
+      <div class="bottom clearfix s-{{entry.stream}}">
+      {% include "common/templates/stream_entry.html" %}
+      </div>
+    </div>
+  </li>
+  {% endifequal %}
+  
+  {% ifequal entry.stream_ref.type 'private' %}
+  <li class="private" id="stream-{{entry.uuid}}">
+    <div class="top">
+      <div class="bottom clearfix s-{{entry.stream}}">
+      {% include "common/templates/stream_entry.html" %}
+      </div>
+    </div>
+  </li>
+  {% endifequal %}
+{% endfor %}
+
+{% if not entries %}
+  {% block no_posts %}
+    {% ifequal area "mentions" %}
+      <div class="highlight">
+        <p>
+          At this time there are no {{POST_NAME|plural}} mentioning @{{view.display_nick}}
+        </p>
+      </div>
+    {% else %}
+      {% ifequal view.nick request.user.nick %}
+        <div class="highlight">
+          <p>It appears that you have not yet posted any messages.
+          Posting is easy - just type your first message in the field
+          above. Don't know what to say? Start with what you're up to
+          right now. For instance, "Heading to lunch with my friends"
+          would be a perfect first message.</p>
+        </div>
+      {% else %}
+      <div class="highlight">
+        <p>
+        {% ifequal privacy "public" %}
+        {{view.display_nick}} has not posted anything public.
+        {% else %}
+        {{view.display_nick}} has not posted anything yet.
+        {% endifequal %}
+        </p>
+      </div>
+      {% endifequal %}
+    {% endifequal %}
+  {% endblock %}
+{% endif %}
+</ul>

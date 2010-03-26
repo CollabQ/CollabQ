@@ -1,0 +1,68 @@
+{% extends 'common/templates/base_frontpage.html' %}
+{% load format avatar actor %}
+
+{% block bodytag %}{{block.super}} {% endblock %}
+
+{% block title %}{{TAGLINE}}{% endblock %}
+
+{% block content %}
+  <div id="front-header" class="clearfix">
+    <a href="{% url_for DOMAIN request %}" id="logo">
+      <img src="/themes/{{DEFAULT_THEME|urlencode}}/logo-front.png" alt="{{SITE_NAME}}" width="211" height="68"/>
+    </a>
+    <div id="intro" class="clearfix">
+      <h1 style="display:none">{{SITE_NAME}}</h1>
+      <p>
+        <span>
+         Connect, Communicate, Collaborate and Exce!!
+        </span>
+      </p>
+    </div>
+  </div>
+  <div id="content-inner" class="top">
+    <div class="bottom">
+      <div class="tb-padding clearfix">
+        <div class="right-side clearfix">
+          <div class="bottom-corner clearfix">
+            <div class="content-corner clearfix">
+              {% include 'front/templates/sidebar_login.html' %}
+            </div>
+          </div>
+        </div>
+        <div class="left-side">
+          <div id="users" class="bottom-corner">
+            <div class="content-corner">
+              <p class="text">Connect with the <a href="/explore">shining Gems</a>,
+                join the relevant <a href="/channel?filter=all">channels</a> and discover the magic
+              in the collaborative chatter!</p>
+              <ul class="users-horizontal clearfix">
+              {% for actor in featured_members %}
+                <li>
+                  {% linked_avatar actor "f" request %}
+                </li>
+              {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}
+
+
+{% block bottomscripts %}
+  <script type="text/javascript">
+    $(document).ready(function (){
+      $('a#sign-in-button').click(function(){
+        $(document).bind('afterReveal.facebox', function() { $('#facebox #field-log').log('El field input').focus() })
+        $.facebox({div: '#modal'});
+        return false;
+      })
+    })
+  </script>
+{% endblock %}

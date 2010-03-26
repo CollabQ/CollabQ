@@ -1,0 +1,31 @@
+{% load avatar format entry presence%}
+{% if not hide_avatar %}
+{% linked_avatar entry.actor_ref "t" request %}
+{% endif %}
+<p class="comment">
+  {% if actor_link %}
+  <span class="actor-link">
+    {% actor_link entry.actor_ref request %}
+  </span>
+  {% endif %}
+  {{entry.extra.content|escape|urlize|format_fancy|format_links|format_actor_links}}
+</p>
+<p class="meta">
+  {% if not hide_timesince %}
+  <a href="{% url_for entry request %}">{{entry.created_at|je_timesince}} ago</a>
+  {% endif %}
+  in reply to <a href="{% url_for entry request %}" title="{{entry.extra.entry_title}}">{{entry.owner|display_nick}}'s message</a>
+  {% if request.user %}
+    {% if not hide_links %}
+    <span class="actions">
+      {% entry_remove_comment request.user entry %}
+      <a href="{% url_for entry request %}#comments" class="add-comment">Comment</a>
+    </span>
+    {% endif %}
+  {% endif %}
+</p>
+<div style="display:none">
+  <p>
+     url_for_reply entry request 
+  </p>
+</div>

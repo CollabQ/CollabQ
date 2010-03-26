@@ -1,0 +1,1713 @@
+[{
+    "pk": "activation/hermit@example.com/email/hermit@example.com",
+    "model": "common.Activation",
+    "fields": {
+        "actor": "hermit@example.com",
+        "content": "hermit@example.com",
+        "type": "email",
+        "code": "TESTCODE"
+    }
+},
+{
+    "pk": "actor/obligated@example.com",
+    "model": "common.actor",
+    "fields": {
+        "nick": "obligated@example.com",
+        "normalized_nick": "obligated@example.com",
+        "password": "bar",
+        "privacy": 3,
+        "type": "user",
+        "extra": {
+            "icon": "default/animal_1",
+            "contact_count": 4,
+            "follower_count": 1
+        }
+    }
+},
+{
+    "pk": "actor/zerofuxor@example.com",
+    "model": "common.actor",
+    "fields": {
+        "nick": "zerofuxor@example.com",
+        "normalized_nick": "zerofuxor@example.com",
+        "password": "collabqtemp",
+        "privacy": 3,
+        "type": "user",
+        "extra": {
+            "icon": "default/animal_3",
+            "contact_count": 0,
+            "follower_count": 0,
+            "email_notify": 1,
+            "im_notify": 1
+        }
+    }
+},
+{
+    "pk": "actor/popular@example.com",
+    "model": "common.actor",
+    "fields": {
+        "avatar_updated_at": "2001-01-01 00:00:00",
+        "nick": "popular@example.com",
+        "normalized_nick": "popular@example.com",
+        "password": "baz",
+        "privacy": 3,
+        "type": "user",
+        "extra": {
+            "icon": "default/animal_3",
+            "contact_count": 2,
+            "follower_count": 4,
+            "email_notify": 1,
+            "im_notify": 1
+        }
+    }
+},
+{
+    "pk": "actor/celebrity@example.com",
+    "model": "common.actor",
+    "fields": {
+        "avatar_updated_at": "2005-05-05 00:00:00",
+        "nick": "celebrity@example.com",
+        "normalized_nick": "celebrity@example.com",
+        "password": "baz",
+        "privacy": 2,
+        "type": "user",
+        "extra": {
+            "icon": "default/animal_3",
+            "contact_count": 2,
+            "follower_count": 4,
+            "given_name": "Cele",
+            "family_name": "Brity"
+        }
+    }
+},
+{
+    "pk": "actor/boyfriend@example.com",
+    "model": "common.actor",
+    "fields": {
+        "nick": "boyfriend@example.com",
+        "normalized_nick": "boyfriend@example.com",
+        "password": "baz",
+        "privacy": 3,
+        "type": "user",
+        "extra": {
+            "icon": "default/animal_3",
+            "contact_count": 1,
+            "follower_count": 1
+        }
+    }
+},
+{
+    "pk": "actor/girlfriend@example.com",
+    "model": "common.actor",
+    "fields": {
+        "nick": "girlfriend@example.com",
+        "normalized_nick": "girlfriend@example.com",
+        "password": "baz",
+        "privacy": 2,
+        "type": "user",
+        "extra": {
+            "icon": "default/animal_3",
+            "contact_count": 1,
+            "follower_count": 1
+        }
+    }
+},
+{
+    "pk": "actor/annoying@example.com",
+    "model": "common.actor",
+    "fields": {
+        "nick": "annoying@example.com",
+        "normalized_nick": "annoying@example.com",
+        "password": "foo",
+        "privacy": 2,
+        "type": "user",
+        "extra": {
+            "icon": "default/animal_10",
+            "contact_count": 2,
+            "follower_count": 1
+        }
+    }
+},
+{
+    "pk": "actor/unpopular@example.com",
+    "model": "common.actor",
+    "fields": {
+        "nick": "unpopular@example.com",
+        "normalized_nick": "unpopular@example.com",
+        "password": "foo",
+        "privacy": 3,
+        "type": "user",
+        "extra": {
+            "icon": "default/animal_10",
+            "contact_count": 3,
+            "follower_count": 0,
+            "email_notify": 1,
+            "im_notify": 1
+        }
+    }
+},
+{
+    "pk": "actor/hermit@example.com",
+    "model": "common.actor",
+    "fields": {
+        "nick": "hermit@example.com",
+        "normalized_nick": "hermit@example.com",
+        "password": "baz",
+        "privacy": 2,
+        "type": "user",
+        "extra": {
+            "icon": "default/animal_3",
+            "contact_count": 0,
+            "follower_count": 0
+        }
+    }
+},
+{
+    "pk": "actor/broken@example.com",
+    "model": "common.actor",
+    "fields": {
+        "nick": "broken@example.com",
+        "password": "baz",
+        "privacy": 3,
+        "type": "user",
+        "extra": {
+            "icon": "default/animal_3",
+            "contact_count": 0,
+            "follower_count": 0
+        }
+    }
+},
+{
+    "pk": "actor/root@example.com",
+    "model": "common.actor",
+    "fields": {
+        "avatar_updated_at": "2007-07-07 00:00:00",
+        "nick": "root@example.com",
+        "normalized_nick": "root@example.com",
+        "password": "fakepassword",
+        "privacy": 3,
+        "type": "user",
+        "extra": {
+            "icon": "default/animal_15"
+        }
+    }
+},
+{
+    "pk": "actor/#popular@example.com",
+    "model": "common.actor",
+    "fields": {
+        "nick": "#popular@example.com",
+        "normalized_nick": "#popular@example.com",
+        "password": "",
+        "privacy": 3,
+        "type": "channel",
+        "extra": {
+            "member_count": 2,
+            "admin_count": 1,
+            "description": "the first channel",
+            "icon": "default/animal_7"
+        }
+    }
+},
+{
+    "pk": "actor/#support@example.com",
+    "model": "common.actor",
+    "fields": {
+        "nick": "#support@example.com",
+        "normalized_nick": "#support@example.com",
+        "password": "",
+        "privacy": 3,
+        "type": "channel",
+        "extra": {
+            "member_count": 2,
+            "admin_count": 1,
+            "description": "the first channel",
+            "icon": "default/animal_7"
+        }
+    }
+},
+{
+    "pk": "actor/CapitalPunishment@example.com",
+    "model": "common.actor",
+    "fields": {
+        "nick": "CapitalPunishment@example.com",
+        "normalized_nick": "capitalpunishment@example.com",
+        "password": "baz",
+        "privacy": 3,
+        "type": "user",
+        "extra": {
+            "icon": "default/animal_3",
+            "contact_count": 1,
+            "follower_count": 2
+        }
+    }
+},
+{
+    "pk": "actor/hotness@example.com",
+    "model": "common.actor",
+    "fields": {
+        "nick": "hotness@example.com",
+        "normalized_nick": "hotness@example.com",
+        "password": "fakepassword",
+        "privacy": 3,
+        "type": "user",
+        "extra": {
+            "icon": "default/animal_14"
+        }
+    }
+},
+{
+    "pk": "relation/contact/obligated@example.com/annoying@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "obligated@example.com",
+        "target": "annoying@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/obligated@example.com/root@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "obligated@example.com",
+        "target": "root@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/obligated@example.com/popular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "obligated@example.com",
+        "target": "popular@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/obligated@example.com/celebrity@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "obligated@example.com",
+        "target": "celebrity@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/annoying@example.com/obligated@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "annoying@example.com",
+        "target": "obligated@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/annoying@example.com/root@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "annoying@example.com",
+        "target": "root@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/annoying@example.com/popular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "annoying@example.com",
+        "target": "popular@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/annoying@example.com/celebrity@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "annoying@example.com",
+        "target": "celebrity@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/annoying@example.com/CapitalPunishment@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "annoying@example.com",
+        "target": "CapitalPunishment@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/CapitalPunishment@example.com/root@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "CapitalPunishment@example.com",
+        "target": "root@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/unpopular@example.com/root@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "unpopular@example.com",
+        "target": "root@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/unpopular@example.com/deleted@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "unpopular@example.com",
+        "target": "deleted@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/unpopular@example.com/popular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "unpopular@example.com",
+        "target": "popular@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/unpopular@example.com/celebrity@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "unpopular@example.com",
+        "target": "celebrity@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/unpopular@example.com/CapitalPunishment@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "unpopular@example.com",
+        "target": "CapitalPunishment@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/popular@example.com/root@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "popular@example.com",
+        "target": "root@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/popular@example.com/celebrity@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "popular@example.com",
+        "target": "celebrity@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/celebrity@example.com/root@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "celebrity@example.com",
+        "target": "root@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/celebrity@example.com/popular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "celebrity@example.com",
+        "target": "popular@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/boyfriend@example.com/girlfriend@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "boyfriend@example.com",
+        "target": "girlfriend@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/girlfriend@example.com/boyfriend@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "girlfriend@example.com",
+        "target": "boyfriend@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/popular@example.com/zerofuxor@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "popular@example.com",
+        "target": "zerofuxor@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/zerofuxor@example.com/popular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "zerofuxor@example.com",
+        "target": "popular@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/unpopular@example.com/zerofuxor@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "unpopular@example.com",
+        "target": "zerofuxor@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/zerofuxor@example.com/unpopular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "zerofuxor@example.com",
+        "target": "unpopular@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/girlfriend@example.com/zerofuxor@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "girlfriend@example.com",
+        "target": "zerofuxor@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/contact/zerofuxor@example.com/celebrity@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "zerofuxor@example.com",
+        "target": "celebrity@example.com",
+        "relation": "contact"
+    }
+},
+{
+    "pk": "relation/channeladmin/#popular@example.com/popular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "#popular@example.com",
+        "target": "popular@example.com",
+        "relation": "channeladmin"
+    }
+},
+{
+    "pk": "relation/channeladmin/#support@example.com/popular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "#support@example.com",
+        "target": "root@example.com",
+        "relation": "channeladmin"
+    }
+},
+{
+    "pk": "relation/channelmember/#popular@example.com/popular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "#popular@example.com",
+        "target": "popular@example.com",
+        "relation": "channelmember"
+    }
+},
+{
+    "pk": "relation/channelmember/#popular@example.com/unpopular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "#popular@example.com",
+        "target": "unpopular@example.com",
+        "relation": "channelmember"
+    }
+},
+{
+    "pk": "relation/email/obligated@example.com/obligated@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "obligated@example.com",
+        "target": "obligated@example.com",
+        "relation": "email"
+    }
+},
+{
+    "pk": "relation/email/popular@example.com/popular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "popular@example.com",
+        "target": "popular@example.com",
+        "relation": "email"
+    }
+},
+{
+    "pk": "relation/email/zerofuxor@example.com/zero.fuxor@gmail.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "zerofuxor@example.com",
+        "target": "zero.fuxor@gmail.com",
+        "relation": "email"
+    }
+},
+{
+    "pk": "relation/email/unpopular@example.com/unpopular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "unpopular@example.com",
+        "target": "unpopular@example.com",
+        "relation": "email"
+    }
+},
+{
+    "pk": "relation/email/celebrity@example.com/celebrity@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "celebrity@example.com",
+        "target": "celebrity@example.com",
+        "relation": "email"
+    }
+},
+{
+    "pk": "relation/email/CapitalPunishment@example.com/CapitalPunishment@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "CapitalPunishment@example.com",
+        "target": "CapitalPunishment@example.com",
+        "relation": "email"
+    }
+},
+{
+    "pk": "relation/email/boyfriend@example.com/boyfriend@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "boyfriend@example.com",
+        "target": "boyfriend@example.com",
+        "relation": "email"
+    }
+},
+{
+    "pk": "relation/email/hotness@example.com/hotness@foobar.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "hotness@example.com",
+        "target": "hotness@foobar.com",
+        "relation": "email"
+    }
+},
+{
+    "pk": "relation/im_account/obligated@example.com/obligated@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "obligated@example.com",
+        "target": "obligated@example.com",
+        "relation": "im_account"
+    }
+},
+{
+    "pk": "relation/im_account/popular@example.com/popular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "popular@example.com",
+        "target": "popular@example.com",
+        "relation": "im_account"
+    }
+},
+{
+    "pk": "relation/im_account/unpopular@example.com/unpopular@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "unpopular@example.com",
+        "target": "unpopular@example.com",
+        "relation": "im_account"
+    }
+},
+{
+    "pk": "relation/im_account/celebrity@example.com/celebrity@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "celebrity@example.com",
+        "target": "celebrity@example.com",
+        "relation": "im_account"
+    }
+},
+{
+    "pk": "relation/im_account/boyfriend@example.com/boyfriend@example.com",
+    "model": "common.Relation",
+    "fields": {
+        "owner": "boyfriend@example.com",
+        "target": "boyfriend@example.com",
+        "relation": "im_account"
+    }
+},
+{
+    "pk": "inboxentry/stream/popular@example.com/presence/12345",
+    "model": "common.inboxentry",
+    "fields": {
+        "uuid": "12345",
+        "inbox": ["inbox/root@example.com/explore", "inbox/popular@example.com/public", "inbox/popular@example.com/contacts", "inbox/popular@example.com/private", "inbox/popular@example.com/overview", "inbox/unpopular@example.com/overview", "inbox/celebrity@example.com/overview", "inbox/obligated@example.com/overview", "inbox/annoying@example.com/overview"],
+        "stream": "stream/popular@example.com/presence",
+        "stream_type": "presence",
+        "shard": "test",
+        "created_at": "2008-02-15 01:02:03"
+    }
+},
+{
+    "pk": "inboxentry/stream/popular@example.com/presence/12346",
+    "model": "common.inboxentry",
+    "fields": {
+        "uuid": "12346",
+        "inbox": ["inbox/root@example.com/explore", "inbox/popular@example.com/public", "inbox/popular@example.com/contacts", "inbox/popular@example.com/private", "inbox/popular@example.com/overview", "inbox/unpopular@example.com/overview", "inbox/celebrity@example.com/overview", "inbox/obligated@example.com/overview", "inbox/annoying@example.com/overview"],
+        "stream": "stream/popular@example.com/presence",
+        "stream_type": "presence",
+        "shard": "test",
+        "created_at": "2008-02-15 01:02:04"
+    }
+},
+{
+    "pk": "inboxentry/stream/popular@example.com/presence/12347",
+    "model": "common.inboxentry",
+    "fields": {
+        "uuid": "12347",
+        "inbox": ["inbox/root@example.com/explore", "inbox/popular@example.com/public", "inbox/popular@example.com/contacts", "inbox/popular@example.com/private", "inbox/popular@example.com/overview", "inbox/unpopular@example.com/overview", "inbox/celebrity@example.com/overview", "inbox/obligated@example.com/overview", "inbox/annoying@example.com/overview"],
+        "stream": "stream/popular@example.com/presence",
+        "stream_type": "presence",
+        "shard": "test",
+        "created_at": "2008-02-15 01:02:05"
+    }
+},
+{
+    "pk": "inboxentry/stream/popular@example.com/presence/12348",
+    "model": "common.inboxentry",
+    "fields": {
+        "uuid": "12348",
+        "inbox": ["inbox/root@example.com/explore", "inbox/popular@example.com/public", "inbox/popular@example.com/contacts", "inbox/popular@example.com/private", "inbox/popular@example.com/overview", "inbox/unpopular@example.com/overview", "inbox/celebrity@example.com/overview", "inbox/obligated@example.com/overview", "inbox/annoying@example.com/overview"],
+        "stream": "stream/popular@example.com/presence",
+        "stream_type": "presence",
+        "shard": "test",
+        "created_at": "2008-02-15 01:02:05"
+    }
+},
+{
+    "pk": "inboxentry/stream/deleted@example.com/presence/10347",
+    "model": "common.inboxentry",
+    "fields": {
+        "uuid": "10347",
+        "inbox": ["inbox/root@example.com/explore", "inbox/deleted@example.com/public", "inbox/deleted@example.com/contacts", "inbox/deleted@example.com/private", "inbox/deleted@example.com/overview", "inbox/unpopular@example.com/overview"],
+        "stream": "stream/deleted@example.com/presence",
+        "stream_type": "presence",
+        "shard": "test",
+        "created_at": "2008-02-15 01:09:05"
+    }
+},
+{
+    "pk": "inboxentry/stream/#popular@example.com/presence/13345",
+    "model": "common.inboxentry",
+    "fields": {
+        "uuid": "13345",
+        "inbox": ["inbox/#popular@example.com/public", "inbox/#popular@example.com/contacts", "inbox/#popular@example.com/private", "inbox/popular@example.com/overview", "inbox/unpopular@example.com/overview", "inbox/celebrity@example.com/overview", "inbox/obligated@example.com/overview", "inbox/annoying@example.com/overview"],
+        "stream": "stream/#popular@example.com/presence",
+        "stream_type": "presence",
+        "shard": "test",
+        "created_at": "2008-02-15 01:03:05"
+    }
+},
+{
+    "pk": "inboxentry/stream/popular@example.com/comments/12348",
+    "model": "common.inboxentry",
+    "fields": {
+        "inbox": ["inbox/popular@example.com/private", "inbox/popular@example.com/contacts", "inbox/popular@example.com/public", "inbox/popular@example.com/overview", "inbox/unpopular@example.com/overview", "inbox/celebrity@example.com/overview", "inbox/annoying@example.com/overview", "inbox/obligated@example.com/overview", "stream/popular@example.com/presence/12345/comments"],
+        "uuid": "12348",
+        "entry": "stream/popular@example.com/presence/12345",
+        "stream": "stream/popular@example.com/comments",
+        "stream_type": "comment",
+        "shard": "test",
+        "created_at": "2008-02-15 01:02:08"
+    }
+},
+{
+    "pk": "inboxentry/stream/unpopular@example.com/comments/14341",
+    "model": "common.inboxentry",
+    "fields": {
+        "inbox": ["inbox/unpopular@example.com/private", "inbox/unpopular@example.com/contacts", "inbox/unpopular@example.com/public", "inbox/unpopular@example.com/overview", "inbox/popular@example.com/overview", "stream/popular@example.com/presence/12345/comments"],
+        "uuid": "14341",
+        "entry": "stream/popular@example.com/presence/12345",
+        "stream": "stream/unpopular@example.com/comments",
+        "stream_type": "comment",
+        "shard": "test",
+        "created_at": "2008-02-15 01:04:01"
+    }
+},
+{
+    "pk": "inboxentry/stream/unpopular@example.com/comments/114341",
+    "model": "common.inboxentry",
+    "fields": {
+        "inbox": ["inbox/unpopular@example.com/private", "inbox/unpopular@example.com/contacts", "inbox/unpopular@example.com/public", "inbox/unpopular@example.com/overview", "inbox/popular@example.com/overview", "stream/popular@example.com/presence/12345/comments"],
+        "uuid": "114341",
+        "entry": "stream/popular@example.com/presence/12345",
+        "stream": "stream/unpopular@example.com/comments",
+        "stream_type": "comment",
+        "shard": "test",
+        "created_at": "2008-02-15 01:04:01"
+    }
+},
+{
+    "pk": "inboxentry/stream/girlfriend@example.com/presence/16961",
+    "model": "common.inboxentry",
+    "fields": {
+        "uuid": "16961",
+        "inbox": ["inbox/girlfriend@example.com/contacts", "inbox/girlfriend@example.com/private", "inbox/girlfriend@example.com/overview", "inbox/boyfriend@example.com/overview"],
+        "stream": "stream/girlfriend@example.com/presence",
+        "stream_type": "presence",
+        "shard": "test",
+        "created_at": "2008-02-15 01:02:03"
+    }
+},
+{
+    "pk": "inboxentry/stream/zerofuxor@example.com/presence/17962",
+    "model": "common.inboxentry",
+    "fields": {
+        "uuid": "17962",
+        "inbox": ["inbox/zerofuxor@example.com/private", "inbox/zerofuxor@example.com/public", "inbox/zerofuxor@example.com/contacts", "inbox/zerofuxor@example.com/overview"],
+        "stream": "stream/zerofuxor@example.com/presence",
+        "stream_type": "presence",
+        "shard": "test",
+        "created_at": "2008-02-15 01:02:03"
+    }
+},
+{
+    "pk": "inboxentry/stream/zerofuxor@example.com/presence/17963",
+    "model": "common.inboxentry",
+    "fields": {
+        "uuid": "17963",
+        "inbox": ["inbox/zerofuxor@example.com/private", "inbox/zerofuxor@example.com/public", "inbox/zerofuxor@example.com/contacts", "inbox/zerofuxor@example.com/overview"],
+        "stream": "stream/zerofuxor@example.com/presence",
+        "stream_type": "presence",
+        "shard": "test",
+        "created_at": "2008-02-15 01:02:03"
+    }
+},
+{
+    "pk": "inboxentry/stream/zerofuxor@example.com/private/18000",
+    "model": "common.inboxentry",
+    "fields": {
+        "uuid": "18000",
+        "inbox": ["inbox/zerofuxor@example.com/inbox", "inbox/popular@example.com/sent"],
+        "stream": "stream/zerofuxor@example.com/private",
+        "stream_type": "private",
+        "shard": "test",
+        "created_at": "2008-02-15 01:02:03"
+    }
+},
+{
+    "pk": "inboxentry/stream/popular@example.com/private/18001",
+    "model": "common.inboxentry",
+    "fields": {
+        "uuid": "18001",
+        "inbox": ["inbox/popular@example.com/inbox", "inbox/zerofuxor@example.com/sent"],
+        "stream": "stream/popular@example.com/private",
+        "stream_type": "private",
+        "shard": "test",
+        "created_at": "2008-02-15 01:02:04"
+    }
+},
+{
+    "pk": "inboxentry/stream/girlfriend@example.com/comments/16962",
+    "model": "common.inboxentry",
+    "fields": {
+        "inbox": ["inbox/girlfriend@example.com/private", "inbox/girlfriend@example.com/contacts", "inbox/girlfriend@example.com/overview", "inbox/boyfriend@example.com/overview", "stream/girlfriend@example.com/presence/16961/comments"],
+        "uuid": "16962",
+        "entry": "stream/girlfriend@example.com/presence/16961",
+        "stream": "stream/girlfriend@example.com/comments",
+        "stream_type": "comment",
+        "shard": "test",
+        "created_at": "2008-02-15 01:02:08"
+    }
+},
+{
+    "pk": "inboxentry/stream/boyfriend@example.com/comments/16963",
+    "model": "common.inboxentry",
+    "fields": {
+        "inbox": ["inbox/boyfriend@example.com/private", "inbox/boyfriend@example.com/contacts", "inbox/boyfriend@example.com/overview", "inbox/girlfriend@example.com/overview", "stream/girlfriend@example.com/presence/16961/comments"],
+        "uuid": "16963",
+        "entry": "stream/girlfriend@example.com/presence/16961",
+        "stream": "stream/boyfriend@example.com/comments",
+        "stream_type": "comment",
+        "shard": "test",
+        "created_at": "2008-02-15 01:04:01"
+    }
+},
+{
+    "pk": "inboxentry/stream/popular@example.com/presence-deleted/17346",
+    "model": "common.inboxentry",
+    "fields": {
+        "uuid": "17346",
+        "inbox": ["inbox/root@example.com/explore", "inbox/popular@example.com/public", "inbox/popular@example.com/contacts", "inbox/popular@example.com/private", "inbox/popular@example.com/overview", "inbox/unpopular@example.com/overview", "inbox/celebrity@example.com/overview", "inbox/obligated@example.com/overview", "inbox/annoying@example.com/overview"],
+        "stream": "stream/popular@example.com/presence-deleted",
+        "stream_type": "presence",
+        "shard": "test",
+        "created_at": "2008-02-15 01:02:07"
+    }
+},
+{
+    "pk": "invite/ACTORINVITE",
+    "model": "common.invite",
+    "fields": {
+        "code": "ACTORINVITE",
+        "email": "demo@example.com",
+        "from_actor": "popular@example.com",
+        "for_actor": "popular@example.com"
+    }
+},
+{
+    "pk": "invite/CHANNELINVITE",
+    "model": "common.invite",
+    "fields": {
+        "code": "CHANNELINVITE",
+        "email": "demo2@example.com",
+        "from_actor": "popular@example.com",
+        "for_actor": "#popular@example.com"
+    }
+},
+{
+    "pk": "oauth/accesstoken/POPULARDESKTOPACCESSTOKEN",
+    "model": "common.OAuthAccessToken",
+    "fields": {
+        "key_": "POPULARDESKTOPACCESSTOKEN",
+        "secret": "secret",
+        "consumer": "TESTDESKTOPCONSUMER",
+        "actor": "popular@example.com",
+        "perms": "delete"
+    }
+},
+{
+    "pk": "oauth/consumer/TESTWEBCONSUMER",
+    "model": "common.oauthconsumer",
+    "fields": {
+        "key_": "TESTWEBCONSUMER",
+        "secret": "secret",
+        "actor": "popular@example.com",
+        "status": "active",
+        "type": "web",
+        "app_name": "Web App",
+        "commercial": 0
+    }
+},
+{
+    "pk": "oauth/consumer/TESTMOBILECONSUMER",
+    "model": "common.oauthconsumer",
+    "fields": {
+        "key_": "TESTMOBILECONSUMER",
+        "secret": "secret",
+        "actor": "popular@example.com",
+        "status": "active",
+        "type": "mobile",
+        "app_name": "Mobile App",
+        "commercial": 0
+    }
+},
+{
+    "pk": "oauth/consumer/TESTDESKTOPCONSUMER",
+    "model": "common.oauthconsumer",
+    "fields": {
+        "key_": "TESTDESKTOPCONSUMER",
+        "secret": "secret",
+        "actor": "popular@example.com",
+        "status": "active",
+        "type": "desktop",
+        "app_name": "Desktop App",
+        "commercial": 0
+    }
+},
+{
+    "pk": "stream/popular@example.com/presence/12345",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "title": "test entry 1",
+            "comment_count": 2
+        },
+        "uuid": "12345",
+        "stream": "stream/popular@example.com/presence",
+        "created_at": "2008-02-15 01:02:03",
+        "owner": "popular@example.com",
+        "actor": "popular@example.com"
+    }
+},
+{
+    "pk": "stream/popular@example.com/presence/12346",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "title": "test entry 2",
+            "icon": "web-balloons"
+        },
+        "uuid": "12346",
+        "stream": "stream/popular@example.com/presence",
+        "created_at": "2008-02-15 01:02:04",
+        "owner": "popular@example.com",
+        "actor": "popular@example.com"
+    }
+},
+{
+    "pk": "stream/popular@example.com/presence/12347",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "title": "test entry 3"
+        },
+        "uuid": "12347",
+        "stream": "stream/popular@example.com/presence",
+        "created_at": "2008-02-15 01:02:05",
+        "owner": "popular@example.com",
+        "actor": "popular@example.com"
+    }
+},
+{
+    "pk": "stream/popular@example.com/presence/12348",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "title": "deleted test entry"
+        },
+        "uuid": "12347",
+        "stream": "stream/popular@example.com/presence",
+        "created_at": "2008-02-15 01:02:05",
+        "deleted_at": "2008-02-15 01:02:06",
+        "owner": "popular@example.com",
+        "actor": "popular@example.com"
+    }
+},
+{
+    "pk": "stream/deleted@example.com/presence/10347",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "title": "test entry by deleted user"
+        },
+        "uuid": "10347",
+        "stream": "stream/deleted@example.com/presence",
+        "created_at": "2008-02-15 01:09:05",
+        "owner": "deleted@example.com",
+        "actor": "deleted@example.com"
+    }
+},
+{
+    "pk": "stream/#popular@example.com/presence/13345",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "title": "test channel entry 1"
+        },
+        "uuid": "13345",
+        "stream": "stream/#popular@example.com/presence",
+        "created_at": "2008-02-15 01:03:05",
+        "owner": "#popular@example.com",
+        "actor": "popular@example.com"
+    }
+},
+{
+    "pk": "stream/popular@example.com/comments/12348",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "content": "test entry comment 1",
+            "entry_stream": "stream/popular@example.com/presence",
+            "entry_stream_type": "presence",
+            "entry_title": "test entry 1",
+            "entry_uuid": "12345",
+            "entry_actor": "popular@example.com"
+        },
+        "uuid": "12348",
+        "entry": "stream/popular@example.com/presence/12345",
+        "stream": "stream/popular@example.com/comments",
+        "created_at": "2008-02-15 01:02:08",
+        "owner": "popular@example.com",
+        "actor": "popular@example.com"
+    }
+},
+{
+    "pk": "stream/unpopular@example.com/comments/14341",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "content": "test entry comment 2",
+            "entry_stream": "stream/popular@example.com/presence",
+            "entry_stream_type": "presence",
+            "entry_title": "test entry 1",
+            "entry_uuid": "12345",
+            "entry_actor": "popular@example.com"
+        },
+        "uuid": "14341",
+        "entry": "stream/popular@example.com/presence/12345",
+        "stream": "stream/unpopular@example.com/comments",
+        "created_at": "2008-02-15 01:01:01",
+        "owner": "popular@example.com",
+        "actor": "unpopular@example.com"
+    }
+},
+{
+    "pk": "stream/unpopular@example.com/comments/114341",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "content": "test deleted comment",
+            "entry_stream": "stream/popular@example.com/presence",
+            "entry_stream_type": "presence",
+            "entry_title": "test entry 1",
+            "entry_uuid": "12345",
+            "entry_actor": "popular@example.com"
+        },
+        "uuid": "114341",
+        "entry": "stream/popular@example.com/presence/12345",
+        "stream": "stream/unpopular@example.com/comments",
+        "created_at": "2008-02-15 01:01:01",
+        "deleted_at": "2008-02-15 01:01:02",
+        "owner": "popular@example.com",
+        "actor": "unpopular@example.com"
+    }
+},
+{
+    "pk": "stream/girlfriend@example.com/presence/16961",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "title": "private test entry 1",
+            "comment_count": 2
+        },
+        "uuid": "16961",
+        "stream": "stream/girlfriend@example.com/presence",
+        "created_at": "2008-02-15 01:02:03",
+        "owner": "girlfriend@example.com",
+        "actor": "girlfriend@example.com"
+    }
+},
+{
+    "pk": "stream/zerofuxor@example.com/presence/17962",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "title": "private test entry 1",
+            "comment_count": 1
+        },
+        "uuid": "17962",
+        "stream": "stream/zerofuxor@example.com/presence",
+        "created_at": "2008-02-16 01:02:02",
+        "owner": "zerofuxor@example.com",
+        "actor": "zerofuxor@example.com"
+    }
+},
+{
+    "pk": "stream/zerofuxor@example.com/presence/17963",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "title": "private test entry 2",
+            "comment_count": 0
+        },
+        "uuid": "17963",
+        "stream": "stream/zerofuxor@example.com/presence",
+        "created_at": "2008-02-19 01:04:03",
+        "owner": "zerofuxor@example.com",
+        "actor": "zerofuxor@example.com"
+    }
+},
+{
+    "pk": "stream/girlfriend@example.com/comments/17964",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "content": "private test entry comment 1",
+            "entry_stream": "stream/zerofuxor@example.com/presence",
+            "entry_stream_type": "presence",
+            "entry_title": "private test entry 1",
+            "entry_uuid": "17962",
+            "entry_actor": "zerofuxor@example.com"
+        },
+        "uuid": "17964",
+        "entry": "stream/zerofuxor@example.com/presence/17962",
+        "stream": "stream/girlfriend@example.com/comments",
+        "created_at": "2008-02-15 01:02:08",
+        "owner": "zerofuxor@example.com",
+        "actor": "girlfriend@example.com"
+    }
+},
+{
+    "pk": "stream/zerofuxor@example.com/private/18000",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "title": "mensaje de popular a zerofuxor"
+        },
+        "uuid": "18000",
+        "stream": "stream/zerofuxor@example.com/private",
+        "created_at": "2008-02-19 01:04:03",
+        "owner": "zerofuxor@example.com",
+        "actor": "popular@example.com"
+    }
+},
+{
+    "pk": "stream/popular@example.com/private/18001",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "title": "mensaje de zerofuxor a popular"
+        },
+        "uuid": "18001",
+        "stream": "stream/popular@example.com/private",
+        "created_at": "2008-02-19 01:04:03",
+        "owner": "popular@example.com",
+        "actor": "zerofuxor@example.com"
+    }
+},
+{
+    "pk": "stream/girlfriend@example.com/comments/16962",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "content": "private test entry comment 1",
+            "entry_stream": "stream/girlfriend@example.com/presence",
+            "entry_stream_type": "presence",
+            "entry_title": "private test entry 1",
+            "entry_uuid": "16961",
+            "entry_actor": "girlfriend@example.com"
+        },
+        "uuid": "16962",
+        "entry": "stream/girlfriend@example.com/presence/16961",
+        "stream": "stream/girlfriend@example.com/comments",
+        "created_at": "2008-02-15 01:02:08",
+        "owner": "girlfriend@example.com",
+        "actor": "girlfriend@example.com"
+    }
+},
+{
+    "pk": "stream/boyfriend@example.com/comments/16963",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "content": "private test entry comment 2",
+            "entry_stream": "stream/girlfriend@example.com/presence",
+            "entry_stream_type": "presence",
+            "entry_title": "private test entry 1",
+            "entry_uuid": "16961",
+            "entry_actor": "popular@example.com"
+        },
+        "uuid": "16963",
+        "entry": "stream/girlfriend@example.com/presence/16961",
+        "stream": "stream/boyfriend@example.com/comments",
+        "created_at": "2008-02-15 01:01:01",
+        "owner": "girlfriend@example.com",
+        "actor": "boyfriend@example.com"
+    }
+},
+{
+    "pk": "stream/popular@example.com/presence-deleted/17346",
+    "model": "common.streamentry",
+    "fields": {
+        "extra": {
+            "title": "entry on deleted stream",
+            "icon": "web-balloons"
+        },
+        "uuid": "17346",
+        "stream": "stream/popular@example.com/presence-deleted",
+        "created_at": "2008-02-15 01:02:07",
+        "owner": "popular@example.com",
+        "actor": "popular@example.com"
+    }
+},
+{
+    "pk": "stream/popular@example.com/presence",
+    "model": "common.stream",
+    "fields": {
+        "title": "popular's presence",
+        "owner": "popular@example.com",
+        "type": "presence",
+        "slug": "presence",
+        "read": 3,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/popular@example.com/comments",
+    "model": "common.stream",
+    "fields": {
+        "title": "popular's comments",
+        "owner": "popular@example.com",
+        "type": "comment",
+        "slug": "comments",
+        "read": 1,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/popular@example.com/private",
+    "model": "common.stream",
+    "fields": {
+        "title": "popular's private",
+        "owner": "popular@example.com",
+        "type": "private",
+        "slug": "private",
+        "read": 2,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/unpopular@example.com/presence",
+    "model": "common.stream",
+    "fields": {
+        "title": "unpopular's presence",
+        "owner": "unpopular@example.com",
+        "type": "presence",
+        "slug": "presence",
+        "read": 3,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/unpopular@example.com/comments",
+    "model": "common.stream",
+    "fields": {
+        "title": "unpopular's comments",
+        "owner": "unpopular@example.com",
+        "type": "comment",
+        "slug": "comments",
+        "read": 1,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/obligated@example.com/presence",
+    "model": "common.stream",
+    "fields": {
+        "title": "obligated's presence",
+        "owner": "obligated@example.com",
+        "type": "presence",
+        "slug": "presence",
+        "read": 3,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/obligated@example.com/comments",
+    "model": "common.stream",
+    "fields": {
+        "title": "obligated's comments",
+        "owner": "obligated@example.com",
+        "type": "comment",
+        "slug": "comments",
+        "read": 1,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/boyfriend@example.com/presence",
+    "model": "common.stream",
+    "fields": {
+        "title": "boyfriend's presence",
+        "owner": "boyfriend@example.com",
+        "type": "presence",
+        "slug": "presence",
+        "read": 3,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/boyfriend@example.com/comments",
+    "model": "common.stream",
+    "fields": {
+        "title": "boyfriend's comments",
+        "owner": "boyfriend@example.com",
+        "type": "comment",
+        "slug": "comments",
+        "read": 1,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/celebrity@example.com/presence",
+    "model": "common.stream",
+    "fields": {
+        "title": "celebrity's presence",
+        "owner": "celebrity@example.com",
+        "type": "presence",
+        "slug": "presence",
+        "read": 2,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/celebrity@example.com/comments",
+    "model": "common.stream",
+    "fields": {
+        "title": "celebrity's comments",
+        "owner": "celebrity@example.com",
+        "type": "comment",
+        "slug": "comments",
+        "read": 1,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/annoying@example.com/presence",
+    "model": "common.stream",
+    "fields": {
+        "title": "annoying's presence",
+        "owner": "annoying@example.com",
+        "type": "presence",
+        "slug": "presence",
+        "read": 2,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/annoying@example.com/comments",
+    "model": "common.stream",
+    "fields": {
+        "title": "annoying's comments",
+        "owner": "annoying@example.com",
+        "type": "comment",
+        "slug": "comments",
+        "read": 1,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/girlfriend@example.com/presence",
+    "model": "common.stream",
+    "fields": {
+        "title": "girlfriend's presence",
+        "owner": "girlfriend@example.com",
+        "type": "presence",
+        "slug": "presence",
+        "read": 2,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/girlfriend@example.com/comments",
+    "model": "common.stream",
+    "fields": {
+        "title": "girlfriend's comments",
+        "owner": "girlfriend@example.com",
+        "type": "comment",
+        "slug": "comments",
+        "read": 1,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/hermit@example.com/presence",
+    "model": "common.stream",
+    "fields": {
+        "title": "hermit's presence",
+        "owner": "hermit@example.com",
+        "type": "presence",
+        "slug": "presence",
+        "read": 2,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/hermit@example.com/comments",
+    "model": "common.stream",
+    "fields": {
+        "title": "hermit's comments",
+        "owner": "hermit@example.com",
+        "type": "comments",
+        "slug": "comments",
+        "read": 2,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/deleted@example.com/presence",
+    "model": "common.stream",
+    "fields": {
+        "title": "deleted's presence",
+        "owner": "deleted@example.com",
+        "type": "presence",
+        "slug": "presence",
+        "read": 3,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/deleted@example.com/comments",
+    "model": "common.stream",
+    "fields": {
+        "title": "deleted's comments",
+        "owner": "deleted@example.com",
+        "type": "comment",
+        "slug": "comments",
+        "read": 1,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/root@example.com/presence",
+    "model": "common.stream",
+    "fields": {
+        "title": "root's presence",
+        "owner": "root@example.com",
+        "type": "presence",
+        "slug": "presence",
+        "read": 3,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/root@example.com/comments",
+    "model": "common.stream",
+    "fields": {
+        "title": "root's comments",
+        "owner": "root@example.com",
+        "type": "comment",
+        "slug": "comments",
+        "read": 1,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/#support@example.com/presence",
+    "model": "common.stream",
+    "fields": {
+        "title": "#support channel",
+        "owner": "#support@example.com",
+        "type": "presence",
+        "slug": "presence",
+        "read": 2,
+        "write": 2
+    }
+},
+{
+    "pk": "stream/#popular@example.com/presence",
+    "model": "common.stream",
+    "fields": {
+        "title": "#popular channel",
+        "owner": "#popular@example.com",
+        "type": "presence",
+        "slug": "presence",
+        "read": 2,
+        "write": 2
+    }
+},
+{
+    "pk": "stream/zerofuxor@example.com/presence",
+    "model": "common.stream",
+    "fields": {
+        "title": "zerofuxor's presence",
+        "owner": "zerofuxor@example.com",
+        "type": "presence",
+        "slug": "presence",
+        "read": 3,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/zerofuxor@example.com/comments",
+    "model": "common.stream",
+    "fields": {
+        "title": "zerofuxor's comments",
+        "owner": "zerofuxor@example.com",
+        "type": "comment",
+        "slug": "comments",
+        "read": 1,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/zerofuxor@example.com/private",
+    "model": "common.stream",
+    "fields": {
+        "title": "zerofuxor's private",
+        "owner": "zerofuxor@example.com",
+        "type": "private",
+        "slug": "private",
+        "read": 2,
+        "write": 1
+    }
+},
+{
+    "pk": "stream/popular@example.com/presence/inbox/unpopular@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/popular@example.com/presence",
+        "subscriber": "unpopular@example.com",
+        "state": "subscribed",
+        "target": "inbox/unpopular@example.com/overview"
+    }
+},
+{
+    "pk": "stream/popular@example.com/presence/inbox/celebrity@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/popular@example.com/presence",
+        "subscriber": "celebrity@example.com",
+        "state": "subscribed",
+        "target": "inbox/celebrity@example.com/overview"
+    }
+},
+{
+    "pk": "stream/popular@example.com/presence/inbox/annoying@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/popular@example.com/presence",
+        "subscriber": "annoying@example.com",
+        "state": "subscribed",
+        "target": "inbox/annoying@example.com/overview"
+    }
+},
+{
+    "pk": "stream/popular@example.com/presence/inbox/obligated@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/popular@example.com/presence",
+        "subscriber": "obligated@example.com",
+        "state": "subscribed",
+        "target": "inbox/obligated@example.com/overview"
+    }
+},
+{
+    "pk": "stream/popular@example.com/comments/inbox/unpopular@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/popular@example.com/comments",
+        "subscriber": "unpopular@example.com",
+        "state": "subscribed",
+        "target": "inbox/unpopular@example.com/overview"
+    }
+},
+{
+    "pk": "stream/popular@example.com/comments/inbox/celebrity@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/popular@example.com/comments",
+        "subscriber": "celebrity@example.com",
+        "state": "subscribed",
+        "target": "inbox/celebrity@example.com/overview"
+    }
+},
+{
+    "pk": "stream/popular@example.com/comments/inbox/annoying@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/popular@example.com/comments",
+        "subscriber": "annoying@example.com",
+        "state": "subscribed",
+        "target": "inbox/annoying@example.com/overview"
+    }
+},
+{
+    "pk": "stream/popular@example.com/comments/inbox/obligated@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/popular@example.com/comments",
+        "subscriber": "obligated@example.com",
+        "state": "subscribed",
+        "target": "inbox/obligated@example.com/overview"
+    }
+},
+
+{
+    "pk": "stream/root@example.com/presence/inbox/popular@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/root@example.com/presence",
+        "subscriber": "popular@example.com",
+        "state": "subscribed",
+        "target": "inbox/popular@example.com/overview"
+    }
+},
+{
+    "pk": "stream/root@example.com/presence/inbox/unpopular@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/root@example.com/presence",
+        "subscriber": "unpopular@example.com",
+        "state": "subscribed",
+        "target": "inbox/unpopular@example.com/overview"
+    }
+},
+{
+    "pk": "stream/root@example.com/presence/inbox/celebrity@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/root@example.com/presence",
+        "subscriber": "celebrity@example.com",
+        "state": "subscribed",
+        "target": "inbox/celebrity@example.com/overview"
+    }
+},
+{
+    "pk": "stream/root@example.com/presence/inbox/annoying@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/root@example.com/presence",
+        "subscriber": "annoying@example.com",
+        "state": "subscribed",
+        "target": "inbox/annoying@example.com/overview"
+    }
+},
+{
+    "pk": "stream/root@example.com/presence/inbox/obligated@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/root@example.com/presence",
+        "subscriber": "obligated@example.com",
+        "state": "subscribed",
+        "target": "inbox/obligated@example.com/overview"
+    }
+},
+
+{
+    "pk": "stream/#popular@example.com/presence/inbox/popular@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/#popular@example.com/presence",
+        "subscriber": "popular@example.com",
+        "state": "subscribed",
+        "target": "inbox/popular@example.com/overview"
+    }
+},
+{
+    "pk": "stream/#popular@example.com/presence/inbox/unpopular@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/#popular@example.com/presence",
+        "subscriber": "unpopular@example.com",
+        "state": "subscribed",
+        "target": "inbox/unpopular@example.com/overview"
+    }
+},
+{
+    "pk": "stream/root@example.com/comments/inbox/celebrity@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/root@example.com/comments",
+        "subscriber": "celebrity@example.com",
+        "state": "subscribed",
+        "target": "inbox/celebrity@example.com/overview"
+    }
+},
+{
+    "pk": "stream/popular@example.com/presence/12345/inbox/unpopular@example.com/overview",
+    "model": "common.subscription",
+    "fields": {
+        "topic": "stream/popular@example.com/presence/12345",
+        "subscriber": "unpopular@example.com",
+        "state": "subscribed",
+        "target": "inbox/unpopular@example.com/overview"
+    }
+}]

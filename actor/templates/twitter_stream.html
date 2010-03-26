@@ -1,0 +1,31 @@
+{% load format %}
+<ul class="stream">
+{% for stream in streams %}
+  <li class="presence" id="twitter-{{stream.id}}">
+    <div class="top">
+      <div class="bottom clearfix s-{{stream.id}}">
+      <a href="http://twitter.com/{{stream.user.screen_name}}" class="url stream-avatar">
+        <img height="50" width="50" alt="{{stream.user.screen_name}}" class="photo" src="{{stream.user.profile_image_url}}"/>
+      </a>
+      <h3>
+        <span class="actor-link">
+          <a href="http://twitter.com/{{stream.user.screen_name}}" class="url">
+            {{stream.user.screen_name}}
+          </a>
+        </span>
+         <span>{{stream.text|format_fancy|format_links|urlize}}</span>
+      </h3>
+      <p class="meta">
+        {{stream.created_at|utc_timesince}} ago
+        from {% autoescape off %}{{stream.source}}{% endautoescape %}
+        {% if stream.in_reply_to_screen_name %}
+        <a href="http://twitter.com/{{stream.in_reply_to_screen_name}}/status/{{in_reply_to_status_id}}">
+          in reply to {{stream.in_reply_to_screen_name}}
+        </a>
+        {% endif %}
+      </p>
+      </div>
+    </div>
+  </li>
+{% endfor %}
+</ul>

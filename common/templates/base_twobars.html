@@ -1,0 +1,16 @@
+{% block container %}
+  {% if not request.mobile %}
+    <div id="leftbar" class="sidebar leftbar">
+      {% block leftbar %}{% endblock %}
+    </div>
+  {% endif %}
+  <div id="content" class="sidebar leftsidebar">
+    {% block content %}{% endblock %}
+    {% include 'common/templates/footnav.html' %}
+  </div>
+  {% if not request.mobile %}
+    <div id="rightbar" class="sidebar rightbar">
+      {% block rightbar %}{% endblock %}
+    </div>
+  {% endif %}
+{% endblock %}

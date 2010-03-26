@@ -1,0 +1,3 @@
+{ {% if entry.entry %} {% include 'wrapper/templates/statuses/fields_comment.json' %}
+  {% else %}{% include 'wrapper/templates/statuses/fields_entry.json' %}{% endif %}
+}

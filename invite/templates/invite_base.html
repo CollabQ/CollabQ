@@ -1,0 +1,17 @@
+{% extends 'common/templates/base_sidebar.html' %}
+{% load format %}
+
+{% block title %}Invitation from {{view.display_nick}}{% endblock %}
+{% block sidebar %}
+<img src="/themes/{{DEFAULT_THEME|urlencode}}/logo-sidebar.png" />
+<div class="sidebar-block-magenta">
+  Collaborative conversations for advancing skills, opportunities, mentoring, leadership & innovation
+</div>
+<div class="sidebar-block-blue">
+  Connect with the <a href="/explore">shining Gems</a>, join the relevant <a href="/channel?filter=all">channels</a> 
+  and discover the magic in the collaborative {{POST_NAME|plural}}!
+</div>
+{% endblock %}
+
+{% block content %}
+{% endblock %}

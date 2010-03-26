@@ -1,0 +1,24 @@
+{% extends 'common/templates/base_single.html' %}
+{% block title %}Welcome{% endblock %}
+{% block content %}
+
+<div class="body" id="welcome-start">
+  <img src="/themes/{{DEFAULT_THEME|urlencode}}/logo-welcome.png" height="120" width="450" alt="{{SITE_NAME}}" />
+
+  <h1>Welcome to {{SITE_NAME}}!</h1>
+  <!-- <p>
+  Follow these easy steps to get started:
+  </p>
+  <ul>
+    <li id="step-1">Add your photo</li>
+    <li id="step-2">Find your friends</li>
+  </ul> -->
+  <p class="clearfix text-right">
+  <big><a href="/welcome/1?redirect_to={{redirect_to|urlencode}}">&#8250; Start</a></big>
+  </p>
+  <p class="clearfix text-right">
+  <small><a href="{{redirect_to}}">Skip the setup</a></small>
+  </p>
+</div>
+
+{% endblock %}

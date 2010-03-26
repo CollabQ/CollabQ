@@ -1,0 +1,23 @@
+{% extends 'common/templates/base_navbar.html' %}
+
+{% block containertag %}class="wide"{% endblock %}
+
+{% block logo %}{% endblock %}
+
+{% block bodytag %}id="frontpage" class="frontpage"{% endblock %}
+
+{% block login %}
+{% endblock %}
+
+{% block mainnav %}{%endblock%}
+
+{% block container %}
+<div id="content">
+  <div class="top">
+    <div class="bottom clearfix">
+      {% block content %}{% endblock %}
+      {% include 'common/templates/footnav.html' %}
+    </div>
+  </div>
+</div>
+{% endblock %}

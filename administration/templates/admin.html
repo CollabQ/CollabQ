@@ -1,0 +1,28 @@
+{% extends 'administration/templates/base_admin.html' %}
+{% load format %}
+{% block admin_content %}
+<div class="split">
+  <dl>
+    <dt><h2>Site</h2></dt>
+    <dd class="no-margin">
+      <p>Change site name, update post colloquial name, update description for site.</p>
+      <ul>
+        <li><a href="admin/site">Site Settings</a></li>
+      </ul>
+    </dd>
+  </dl>
+</div>
+<div class="split">
+  <dl>
+    <dt><h2>Channels</h2></dt>
+    <dd class="no-margin">
+      <p>Manage channels options, create channels, manage channels</p>
+      <ul>
+        <li><a href="admin/channel">Channel Options</a></li>
+        <li><a href="admin/channel/new">Create Channel</a></li>
+        <li><a href="admin/channel/list">Manage Channels</a></li>
+      </ul>
+    </dd>
+  </dl>
+</div>
+{% endblock %}

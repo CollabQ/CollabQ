@@ -1,0 +1,59 @@
+{% load avatar nonce format %}
+<ul class="clearfix">
+{% for channel in channel_tiles %}
+  <li {% cycle '' 'class="odd"' %}>
+   <div class="top-corner clearfix">
+     <div class="bottom-corner clearfix">
+       <div class="left">
+          <div class="avatar">
+            {% linked_avatar channel "t" request %}
+          </div>
+          <div class="info">
+           <h3>
+             <a href="{% url_for channel request %}">{{channel.display_nick}}</a>
+           </h3>
+           {% if channel.extra.description %}
+             <p class="description">
+               {{channel.extra.description|truncatewords:15}}
+             </p>
+           {% endif %}
+            <p class="others">
+          <span class="tags">
+            {% comment %}
+            {% if channel.extra.member_count %}
+              <span>
+                {{ channel.extra.member_count }} members
+                {% if channel.i_am_admin %}
+                  | <a href="{% url_for channel request %}/settings">Settings</a>
+                {% else %}
+                {% endif %}
+              </span><br/>
+            {% endif %}
+            {% endcomment %}
+            {% if channel.tags_ref %}
+              Tags:
+              {% for tag in channel.tags_ref %}
+                  <a href="/channel/browse{{tag.path}}/{{tag.term}}"> {{tag.term}} </a>
+                  {% if not forloop.last %} | {% endif %}
+              {% endfor %}
+            {% endif %}
+          </span>
+            </p>
+        </div>
+        </div>
+        <div class="right">
+          {% if not channel.i_am_member %}
+            <a class="join"
+               {% if request.user %}
+               href="{% url_for channel request %}?channel_join=&amp;nick={{request.user.nick|urlencode}}&amp;channel={{channel.nick|urlencode}}&amp;{{request.user|nonceparam:"channel_join"}}"
+               {% else %}
+               href="/login?redirect_to={{channel.url|urlencode}}"
+               {% endif%}
+               >Join</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </li>
+{% endfor %}
+</ul>

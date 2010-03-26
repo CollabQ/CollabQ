@@ -1,0 +1,61 @@
+{% load avatar nonce format %}
+
+{% if not request.user.spam %}
+<div id="div-dm-form" class="main">
+  <div class="top">
+    <div class="bottom">
+      <div id="form-dm" class="wrapper">
+        <form id="direct-message-form" action="" method="POST">
+          <div class="row text">
+            <div class="float-left">
+            <span>Send</span>
+              {% if let_send %}
+                {% if reply %}
+                  <a class="blue" href="{{reply_ref.url}}">{{reply_ref.display_nick}}</a>
+                  <input name="friend" type="hidden" value="{{reply_ref.nick}}" />
+                {% else %}
+                  <select id="friend-select" name="friend">
+                    <option value="false">&nbsp;</option>
+                    {% for friend in friends  %}
+                    <option value="{{friend.nick}}">
+                      {{friend.display_nick}}
+                    </option>
+                    {% endfor %}
+                  </select>
+                {% endif %}
+              {% else %}
+                <select id="friend-select" name="friend">
+                  <option value="false">&nbsp;</option>
+                  {% for friend in friends  %}
+                  <option value="{{friend.nick}}">
+                    {{friend.display_nick}}
+                  </option>
+                  {% endfor %}
+                </select>
+              {% endif %}
+            <span>a direct message</span>
+            </div>
+            <p id="counter">140 characters left</p>
+          </div>
+          <div class="row">
+            <textarea id="message" name="message" rows="4" cols="25"></textarea>
+          </div>
+          <div class="row last clearfix buttons">
+            <input type="hidden" name="nick" value="{{request.user.nick}}" />
+            {{request.user|noncefield:"dm"}}
+            <input type="hidden" name="dm" value="" />
+            <input class="button no-text" type="submit" value="Send"/>
+          </div>
+        </form>
+      </div>
+    </div>
+   </div>
+ </div>
+{% else %}
+  <div class="main">
+    <h3>Posting suspended</h3>
+    <p>
+    Your posting rights have been suspended because your activities triggered our spam watchdog. If you think this was a mistake, please contact us by email at <a href="mailto:support@{{HOSTED_DOMAIN}}">support@{{HOSTED_DOMAIN}}</a> and we'll sort out your case.
+    </p>
+  </div>
+{% endif %}

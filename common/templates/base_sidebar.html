@@ -1,0 +1,29 @@
+{% extends 'common/templates/base_navbar.html' %}
+
+{% block containertag %}class="baseleft"{% endblock %}
+
+{% block container %}
+<div class="top-corner">
+  <div class="bottom-corner">
+    <div class="content-corner clearfix">
+      <div id="content" class="content float-left">
+        <div class="top{% if green_top %} b{% endif %}">
+          <div class="bottom">
+          {% block content %}{% endblock %}
+          {% include 'common/templates/footnav.html' %}
+          </div>
+        </div>
+      </div>
+      {% if not request.mobile %}
+        <div id="sidebar">
+          <div class="top{% if sidebar_green_top %} b{% endif %} clearfix">
+            <div class="bottom clearfix">
+              {% block sidebar %}{% endblock %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

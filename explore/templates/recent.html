@@ -1,0 +1,23 @@
+{% extends 'common/templates/base_sidebar.html' %}
+{% load format %}
+
+{% block title %}Latest Public {{POST_NAME|plural}}{% endblock %}
+{% block content %}
+  {% if request.user %}
+    {% include 'common/templates/message_form.html' %}
+    {% include 'common/templates/subnav_tabs.html' %}
+  {% endif %}
+  <div id='stream'>
+    <h2>Latest {{POST_NAME|plural}} from every one!</h2>
+    {% include 'common/templates/stream.html' %}
+    {% include 'common/templates/paging.html' %}
+    {% include 'common/templates/feeds.html' %}
+  </div>
+
+{% endblock %}
+
+{% block sidebar %}
+{% if request.user %}
+  {% include 'common/templates/user_sidebar.html' %}
+{% endif %}
+{% endblock %}

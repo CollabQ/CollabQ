@@ -1,0 +1,17 @@
+{% extends 'common/templates/base_single.html' %}
+{% block title %}Installing Channels{% endblock %}
+{% block content %}
+  <h1>{{channels}}</h1>
+  <p>{{message}}</p>
+  {% if userinfo %}
+    <p>{{userinfo}}</p>
+  {% endif %}
+  {% if other %}
+    <p>{{other}}</p>
+  {% endif %}
+  {% if size %}
+    <p>Size: {{size}}</p>
+  {% endif %}
+  <p>Current {{page}}</p>
+  <p>Next <a href="/{{action_call}}?page={{next}}">go!</a></p>
+{% endblock %}

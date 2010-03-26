@@ -1,0 +1,21 @@
+{% extends 'common/templates/form_add_contacts.html' %}
+
+{% block buttons %}
+{% if contacts %}
+  <input type="hidden" name="redirect_to" value="{{redirect_to}}" />
+  <p class="clearfix">
+    <button type="submit">
+    <big class="active"><span>&#8250; Add Contacts</span></big>
+    </button>
+  </p>
+  <p class="clearfix">
+    <span>
+    or <a href="/invite/googlecontacts/">skip this now</a>
+    </span>
+  </p>
+{% else %}
+<p class="clearfix text-right">
+  <big class="active"><a href="/">&#8250; Continue</a></big>
+</p>
+{% endif %}
+{% endblock %}

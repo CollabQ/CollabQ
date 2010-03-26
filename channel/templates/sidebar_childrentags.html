@@ -1,0 +1,10 @@
+{% load format %}
+<div id="children">
+  <h2>Related Channels</h2>
+  <p>
+  {% for channel in childs %}
+    <a href="{% url_for channel request %}" title="Channel {{channel.display_nick}}">
+      {{channel.display_nick}}</a>{% if not forloop.last %}, {% endif %}
+  {% endfor %}
+  </p>
+</div>

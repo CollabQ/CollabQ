@@ -1,0 +1,30 @@
+{% load avatar format entry presence %}
+{% if not hide_avatar %}
+{% linked_avatar entry.actor_ref "t" request %}
+{% endif %}
+<h3>
+  {% if actor_link %}
+    <span class="actor-link">
+      {% actor_link entry.actor_ref request %}
+    </span>
+  {% endif %}
+   <span>{{entry.extra.title|pobox_escape|format_fancy|format_links|format_actor_links|urlize}}</span>
+</h3>
+<p class="meta">
+  {% ifnotequal entry.actor entry.owner %}
+    to {% actor_link entry.owner_ref request %}
+  {% endifnotequal %}
+  {% if not hide_timesince %}
+  <a href="{% url_for entry request %}">{{entry.created_at|je_timesince}} ago</a>
+  {% endif %}
+  {% if request.user %}
+  {% if not hide_links %}
+  <span class="actions">
+    {% entry_remove request.user entry user_is_admin %}
+    <a href="{% url_for entry request %}#comments" class="add-comment">
+      Comment{% if entry.extra.comment_count %}{{entry.extra.comment_count|pluralize}}({{entry.extra.comment_count}}){% endif %}
+    </a>
+  </span>
+  {% endif %}
+  {% endif %}
+</p>

@@ -1,0 +1,14 @@
+{% block channel_browse_tabs %}
+{% if ENABLE_CHANNEL_TYPES %}
+<ul class="tabs clearfix">
+  <li {% if not type %}class="current"{% endif %}>
+    <a href="/channel?{{filter_url}}">All</a>
+  </li>
+  {% for type_tab in channel_types %}
+    <li {% ifequal type type_tab %}class="current"{% endifequal %}>
+      <a href="{{base_url}}{{filter_url}}&type={{type_tab}}">{{type_tab}}</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

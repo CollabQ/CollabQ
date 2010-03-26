@@ -1,0 +1,10 @@
+{% extends 'common/templates/base_single.html' %}
+{% block title %}Installing Tags{% endblock %}
+{% block content %}
+<h2>Values</h2>
+{% for value in values %}
+  <p>
+    {{value.target}}
+  </p>
+{% endfor %}
+{% endblock %}
