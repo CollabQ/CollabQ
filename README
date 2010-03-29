@@ -1,58 +1,20 @@
-===========
-MongoEngine
-===========
-:Info: {{CollabQ description}}
-:Author: {{collabq url}}
+========
+CollabQ
+========
+:Info: CollabQ is based on jaiku engine to bring the power of Web 2.0.
+:Author: www.collabq.com
 
 About 
 =====
-CollabQ is a collaborative tool to bringe the power of Web 2.0. 
-# TODO(team): write about text
+CollabQ is a collaborative tool like Twitter but for Enterprise, University, and
+Governement environments. It is built from ground up specifically for the
+intranet environments. It comes with best-in-class features like Channels to
+create multiple departments and also sub-departments under each department.
 
-<{{user_guide_url}}>`_ 
-<{{developer_guide_url}}>`_.
+It can be installed and started within minutes by leveraging Google Cloud
+environment known as Google App Engine. Or, it can be installed on a local
+server in an Intranet environment.
 
-Installation
-============
-You need to have python 2.5+ installed and well configurated.
-# TODO(zero): write how to install and configurate python
+CollabQ is based on jaiku engine to bring the power of Web 2.0
 
-To deploy:
-
-- Create a App on Google App Engine and get an <<app_id>> # TODO(zero) write how to create a google app
-- Extract collabq-xx.tar.bz2
-- Edit app.yaml, change application field to your <<app_id>>
-- Open a command line window, go to the extracted folder and run the following command:
-  
-    python manage.py update
-
-- visit to <<app_id>>.appspot.com
-- Fill and sumbit the installation form
-- enjoy!
-
-To run test-server on your computer:
-
-- Extract collabq-xx.tar.bz2
-- Open a command line window, go to the extracted folder and run the following command:
-
-    python manage.py testserver common\fixtures\all.json
-   
-  only on windows system: you can execute runserver.bat instead of run the above command
-  
-- open a browser and visit to http://localhost:8080
-- enjoy!
-
-Dependencies
-============
-- python 2.5+
-
-Community
-=========
-- `CollabQ Users mailing list 
-  <{{discussion_community_list}}>`_
-- `CollabQ Developers mailing list 
-  <{{discussion_community_list_dev}}>`_
-
-Contributing
-============
-The source is available on <{{source_url}}>
+`CollabQ site <http://www.collabq.com>`_
