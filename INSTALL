@@ -1,0 +1,69 @@
+Installing on your local system
+===============================
+Requiriments
+------------
+* python 2.5+ - CollabQ is written in python, to intall and use it you need python interpreter. To get python you can see at Python Documentation
+* Google App Engine account - CollabQ runs on Google App Engine to deploy a production system you need an App Engine Account and an app_id. Read the following document to get an app_id: How to get a Google App ID 
+
+How to deploy in your local system
+----------------------------------
+# Install Python 2.5 or above on your local system.
+# Download the CollabQ zip file at `CollabQ <http://github.com/CollabQ/CollabQ/zipball/master>`_
+# Unzip it to C:\
+# Go to C:\CollabQ and start runserver.bat from the explore window.
+# Start a browser and load http://localhost:8080 You will see CollabQ welcome page
+# You can either register and start using it or use Google to authenticate and start using it. 
+
+If you face any problems, please `contact us <mailto:support@CollabQ.com>`_ with the steps you followed. We will get back to you on how to fix the problem.
+
+Installing on Google Cloud (Google App Engine)
+==============================================
+Configure your app
+------------------
+Get an Google App ID and add it to the file app.yaml in c://project/mycollabsite. For example if your app_id is mycollabqsite your app.yaml should start similar to:
+
+  application: mycollabqsite
+  version: 1
+  runtime: python
+  ...
+
+Edit the setting.py file and change the variable APP_ID to your app_id. If your app_id is mycollabqsite your app.yaml should start similar to:
+
+  ...
+  APP_ID = 'mycollabqsite'
+  ...
+
+Upload your App
+---------------
+Open a command line and go to your PROJECT_PATH. For example if you are on Windows and your project is under c://CollabQ you should type:
+
+  c:
+  cd c://CollabQ
+
+To upload your app to GAE type:
+
+  python manage.py update
+
+If this does not work, try:
+
+  c:\Python26\python manage.py update
+
+It will prepare the files and will ask you your email and your password to verify if you have access to the app, you should enter the email and your password which you used to create your GAE App:
+
+  ...
+  Scanned 14500 files.
+  Scanned 15000 files.
+  Scanned 15500 files.
+  Initiating update.
+  Email:
+
+Installing
+==========
+After the app is uploaded, you have to fill the installation form in your GAE app. Visit your app URL, it has the following format: app_id.appspot.com. The Site will ask you the following fields:
+
+* Site Name (Required) - What name will you want for your site.
+* Tagline (Optional).
+* Root User Mail (Required) - The email for the Admin User.
+* Root User Password - The password for the Admin User
+* Default Channel (Required) - The channel name by the default channel, every registered user will be part of this channel.
+* Post Name (Required) - The colloquial name for an entry, mostly used for branding purposes 
