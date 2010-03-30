@@ -51,8 +51,7 @@ def user_create(service, params, username='', id='', remote_url=''):
 
   api.post(actor_ref,
            nick=actor_ref.nick,
-           message='Joined %s!' % (util.get_metadata('SITE_NAME')),
-           icon='jaiku-new-user')
+           message='Joined %s!' % (util.get_metadata('SITE_NAME')))
 
   email = params.get('email', None)
   if email is not None:

@@ -639,9 +639,6 @@ def actor_twitter(request, nick, format='html'):
     return http.HttpResponse(t.render(c))
 
 
-# The following section heavily commented for use in
-# http://code.google.com/p/jaikuengine/wiki/ControllerBestPractices
-
 # Views are named based on their app and whenever possible the url they are
 # accessible at, in this case for legacy compatibility there is a requirement
 # for using the word "presence" in the url but it is not very closely

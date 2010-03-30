@@ -2447,7 +2447,6 @@ def channel_post(api_user, **kw):
   # grab the params we're interested in
   message = kw.get('message', kw.get('title', '')) # legacy compat
   location = kw.get('location', '')
-  icon = clean.icon(kw.get('icon', 0))
   uuid = kw.get('uuid', util.generate_uuid())
   channel = kw.get('channel', None)
   nick = kw.get('nick', None)
@@ -2485,7 +2484,6 @@ def channel_post(api_user, **kw):
     'extra': {
       'title': message,
       'location': location,
-      'icon': icon,
     }
   }
 
@@ -3545,7 +3543,6 @@ def post(api_user, _task_ref=None, **kw):
   PARAMS:
     * message - the title of your entry
     * location - free form location for this entry
-    * icon - the web icon for this icon
     * nick - the actor posting this entry
     * uuid - a unique identifier for this entry
   
@@ -3557,7 +3554,6 @@ def post(api_user, _task_ref=None, **kw):
   # grab the params we're interested in
   message = kw.get('message', '').strip()
   location = kw.get('location', '')
-  icon = clean.icon(kw.get('icon', 0))
   generated = kw.get('generated', 0)
   uuid = kw.get('uuid', util.generate_uuid())
   nick = clean.nick(kw.get('nick', ''))
@@ -3625,7 +3621,6 @@ def post(api_user, _task_ref=None, **kw):
   actor_ref = actor_get(api_user, nick)
   extra['title'] = message
   extra['location'] = location
-  extra['icon'] = icon
 
   values = {
     'stream': stream_ref.key().name(),

@@ -96,8 +96,7 @@ def join_join(request):
 
       api.post(actor_ref, 
                nick=actor_ref.nick, 
-               message='Joined %s!' % (util.get_metadata('SITE_NAME')),
-               icon='jaiku-new-user')
+               message='Joined %s!' % (util.get_metadata('SITE_NAME')))
       if fromopenid:
         api.email_associate(api.ROOT, actor_ref.nick, email)
       else:

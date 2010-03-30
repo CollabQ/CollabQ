@@ -280,11 +280,6 @@ class LoginForgotTest(ViewTestCase):
     self.assertContains(r, 'does not match any accounts')
 
 class LoginResetTest(ViewTestCase):
-  #def test_mixed_case(self):
-  #  activation_ref = api.activation_create(api.ROOT, 'CapitalPunishment@jaiku.com', 'password_lost', 'CapitalPunishment@jaiku.com')
-  #  code = util.hash_generic(activation_ref)
-
-
   def test_login_forgot_nick_mixed_case(self):
     r = self.client.post('/login/forgot', 
                          {

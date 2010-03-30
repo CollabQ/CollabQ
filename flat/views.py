@@ -73,7 +73,7 @@ def flat_press(request):
 @decorator.cache_forever
 def flat_help(request, page='index'):
   paths = {
-    'index': 'Jaiku - Frequently Asked Questions',
+    'index': 'Frequently Asked Questions',
     'sms': 'SMS Updates',
     'im': 'Instant Messaging Updates',
     'commands': 'SMS and IM Commands',

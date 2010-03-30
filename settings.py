@@ -133,7 +133,7 @@ TEST_RUNNER = 'common.test.runner.run_tests'
 
 ####
 #
-# Below this is custom for Jaiku Engine (not related to Django)
+# Below this is custom for CollabQ (not related to Django)
 #
 ####
 
@@ -263,8 +263,7 @@ LEGACY_SECRET_KEY = 'I AM ALSO SECRET'
 # SMS
 #
 
-# Enabling SMS will require a bit more than just making this True, please
-# read the docs at http://code.google.com/p/jaikuengine/wiki/sms_support
+# Enabling SMS will require a bit more than just making this True.
 SMS_ENABLED = False
 
 # Most SMS vendors will provide a service that will post messages to a url
@@ -293,8 +292,7 @@ SMS_TEST_NUMBERS = []
 # XMPP / IM
 #
 
-# Enabling IM will require a bit more than just making this True, please
-# read the docs at http://code.google.com/p/jaikuengine/wiki/im_support
+# Enabling IM will require a bit more than just making this True.
 IM_ENABLED = False
 
 # This is the id (JID) of the IM bot that you will use to communicate with
