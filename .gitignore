@@ -2,7 +2,7 @@
 *.pyc
 *~
 *.zip
-*.yaml
+index.yaml
 *.bak
 *.orig
 *.swp
