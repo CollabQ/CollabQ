@@ -1,3 +1,4 @@
+# Copyright 2010 http://www.collabq.com
 # -*- coding: utf-8 -*-
 """
 Copyright (c) 2008, appengine-utilities project

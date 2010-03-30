@@ -1,3 +1,4 @@
+# Copyright 2010 http://www.collabq.com
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 from common import api

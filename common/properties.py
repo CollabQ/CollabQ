@@ -1,3 +1,4 @@
+# Copyright 2010 http://www.collabq.com
 #!/usr/bin/python2.4
 # Copyright 2009 Google Inc.
 #

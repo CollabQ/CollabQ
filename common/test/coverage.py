@@ -1,3 +1,4 @@
+# Copyright 2010 http://www.collabq.com
 #!/usr/bin/python
 #
 #             Perforce Defect Tracking Integration Project

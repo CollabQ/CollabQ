@@ -1,3 +1,4 @@
+# Copyright 2010 http://www.collabq.com
 """
 Copyright (c) 2008, appengine-utilities project
 All rights reserved.
