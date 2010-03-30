@@ -1,0 +1,4 @@
+cron:
+- description: daily summary job
+  url: /api/process_queue?secret=zeromalaniz
+  schedule: every 5 minutes
