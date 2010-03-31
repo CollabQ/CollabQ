@@ -18,6 +18,6 @@ Channel Tags are designed to create top down structure for the Channels/Groups
 which make the Channel navigation user friendly.
 
 It can be installed and started within minutes by leveraging Google Cloud
-environment known as Google App Engine.
+environment known as `Google App Engine <http://appengine.google.com/>`.
 
 `CollabQ site <http://www.collabq.com>`_
