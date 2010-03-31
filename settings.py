@@ -30,7 +30,7 @@ ROOT_PATH = os.path.dirname(__file__)
 # Django related settings
 ###
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -421,7 +421,7 @@ ROOT_NICK = 'root@%s' % NS_DOMAIN
 
 # This is the name of the site that will be used whenever it refers to itself
 SITE_NAME = "CollabQ"
-TAGLINE = "Enterprise | Social | Solutions"
+TAGLINE = "Open Souce | Enterprise | Social Software"
 SITE_DESCRIPTION = "CollabQ community management system"
 DEFAULT_CHANNEL = 'support'
 POST_NAME = 'Post'
