@@ -953,7 +953,7 @@ body#frontpage div.left-side,
 }
 body#frontpage div.left-side{
   width:475px;
-  margin: 2em 0 0;
+  margin: 0;
   padding: 10px 0 0;
   background: #4E6D89 url(bg-front-users-corners.png) no-repeat top left;
 }

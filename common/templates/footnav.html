@@ -38,6 +38,16 @@
     {% if BLOG_ENABLED %}
     | <a href="{{BLOG_URL}}">Blog</a>
     {% endif %}
+    <div class="powered">
+      <span class="text">powered by </span>
+      <a href="http://www.collabq.com/" class="inline">
+        <img style="display:inline" src="http://{{DOMAIN}}/themes/{{DEFAULT_THEME|urlencode}}/collabq.png" alt="CollabQ"/>
+      </a>
+      <span class="text"> and </span>
+      <a href="http://code.google.com/appengine/" class="inline">
+        <img style="display:inline" src="http://{{DOMAIN}}/themes/{{DEFAULT_THEME|urlencode}}/appengine.png" alt="google app engine"/>
+      </a>
+    </div>
   </div>
   {% endifnotequal %}
 {% endif %}
