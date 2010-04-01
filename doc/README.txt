@@ -1,117 +1,83 @@
-JaikuEngine
-===========
-
+=========================
+CollabQ Community Edition
+=========================
 
 Getting the code
 ----------------
 
-You can download the latest released version of JaikuEngine from the 
-Google Code project at: http://code.google.com/p/jaikuengine
+You can download the latest released version of CollabQ from:
 
-Use this command to anonymously check out the latest project source code:
-# Non-members may check out a read-only working copy anonymously over HTTP.
-svn checkout http://jaikuengine.googlecode.com/svn/trunk/ jaikuengine-read-only
+Join Community for Support. To check out the lastest code from the CollabQ GIT Repository, use these Public Clone URLs :
 
-If you plan to make changes, use this command to check out the code as yourself using HTTPS:
-# Project members authenticate over HTTPS to allow committing changes.
-svn checkout https://jaikuengine.googlecode.com/svn/trunk/ jaikuengine --username adewale
-
-When prompted, enter your generated googlecode.com password.
-
+Github URL: http://github.com/CollabQ/CollabQ/tree/master
+Github download: http://github.com/CollabQ/CollabQ/tarball/master
+Public Clone URL: git://github.com/CollabQ/CollabQ.git
 
 Dependencies
 ------------
   
   * Python 2.4 or 2.5
   * docutils: http://docutils.sourceforge.net/
-  * Everything else should be included in the checkout :)
 
 Quickstart
-----------
-
+==========
 To get a development version running:
 
-   1. Check out the repository (it's somewhat large due to image binaries):
-  
-      ``svn checkout http://jaikuengine.googlecode.com/svn/trunk/ jaikuengine``
-    
-   2. Run the server with some test data pre-loaded:
+# Install Python 2.5 or above on your local system.
+# Download the CollabQ zipfile from http://ww.collabq.com/
+# Unzip it to C://CollabQ
+# Go to C://CollabQ and start runserver.bat from the explore window. This will start CollabQ in a new command window
+# In the command window, look for "INFO:root:Running application collabq on port 8080: http://localhost:8080"
+# Start a browser and load http://localhost:8080 and you will see CollabQ welcome page
 
-      ``python manage.py testserver common/fixtures/*.json``
-   
-   3. Browse to localhost:8080 and log in with popular/password
+Deploying to Google App Engine
+==============================================
+Configure your app
+------------------
+Get an Google App ID and add it to the file app.yaml in c://project/mycollabsite. For example if your app_id is mycollabqsite your app.yaml should start similar to:
 
+  application: mycollabqsite
+  version: 1
+  runtime: python
+  ...
 
-To deploy to Google App Engine
+Edit the setting.py file and change the variable APP_ID to your app_id. If your app_id is mycollabqsite your app.yaml should start similar to:
 
-   1. Create an application, you can do this on appspot.com
+  ...
+  APP_ID = 'mycollabqsite'
+  ...
 
-   2. Check out the repository (it's somewhat large due to image binaries):
-  
-      ``svn checkout http://jaikuengine.googlecode.com/svn/trunk/ jaikuengine``
-
-   3. Edit your ``app.yaml`` and change your application to use the
-      application identifier you just created
-
-   4. Set up some basic config stuff using the helper tool:
-
-      ``python manage.py config --write-to-file``
-
-   5. Deploy
-
-      ``python manage.py update``
-
-   6. Go to your app and create the initial data by going to the url
-      (you'll need to be logged in to appspot.com as an admin of your
-      application):
-
-      ``http://yourapp.appspot.com/install``
-
-Getting Running
+Upload your App
 ---------------
+Open a command line and go to your PROJECT_PATH. For example if you are on Windows and your project is under c://CollabQ you should type:
 
-JaikuEngine uses the Django framework as well as most of its development 
-process, so most actions go through manage.py.
+  c:
+  cd c://CollabQ
 
-To run the development server::
+To upload your app to GAE type:
 
-  python manage.py runserver 8080
+  python manage.py update
 
-But most of the time you'll be wanting to load some basic test data, this can
-be done with the testserver command (and specifying the data to load)::
+If this does not work, try:
 
-  ``python manage.py testserver common/fixtures/*.json``
+  c:\Python26\python manage.py update
 
-Both of these will start a server running at http://localhost:8080.  
+It will prepare the files and will ask you your email and your password to verify if you have access to the app, you should enter the email and your password which you used to create your GAE App:
 
-If you would like to start a server that binds to all interfaces, use::
+  ...
+  Scanned 14500 files.
+  Scanned 15000 files.
+  Scanned 15500 files.
+  Initiating update.
+  Email:
 
-  python manage.py runserver 0.0.0.0:8080
+Installing
+==========
+After the app is uploaded, you have to fill the installation form in your GAE app. Visit your app URL, it has the following format: app_id.appspot.com. The Site will ask you the following fields:
 
-
-Contributing to the project
----------------------------
-
-We would be happy to consider any additions or bugfixes that you would like to
-add to the helper. Please add them as a patch, in unified diff format to the
-Issue Tracker at: http://code.google.com/p/jaikuengine/issues/list
-
-Before we can accept your code you will need to have signed the Google
-Contributer License. You can find this at:
-
-http://code.google.com/legal/individual-cla-v1.0.html
-or
-http://code.google.com/legal/corporate-cla-v1.0.html
-
-If you are an Individual contributor you will be able to electronically sign
-and submit the form at the URL above. Please ensure that you use the same email
-address to submit your patch as you used to sign the CLA.
-
-
-Reporting Bugs and Requesting Features
---------------------------------------
-
-If you find a bug or would like to request a feature you may do so at the
-Google Code issue tracker for this project:
-
-http://code.google.com/p/jaikuengine/issues/entry
+* Site Name (Required) - What name will you want for your site.
+* Tagline (Optional).
+* Root User Mail (Required) - The email for the Admin User.
+* Root User Password - The password for the Admin User
+* Default Channel (Required) - The channel name by the default channel, every registered user will be part of this channel.
+* Post Name (Required) - The colloquial name for an entry, mostly used for branding purposes 
