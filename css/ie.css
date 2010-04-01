@@ -121,3 +121,37 @@ div#sidebar div#mobile h3.availability-orange {
 div#sidebar div#mobile h3.availability-red {
     background-image: url(../images/red.gif);
 }
+
+/*FIX IE6*/
+#frontpage #logo {
+  _padding:30px 14px 0 14px !important;
+}
+#frontpage #users {
+  _padding-bottom:30px;
+  _margin-bottom:-10px;
+}
+div#content div.main a.avatar {
+  _position:relative;
+}
+div#sub-nav-wrapper .bg-right {
+  _padding-right:0!important;
+}
+div#sub-nav-wrapper .bg-left {
+  _padding-left:0!important;
+} 
+div#sidebar div.info h2{
+  _position:relative; 
+  _right:0; 
+}
+div#sidebar div.bottom {
+  _padding-left: 0px!important;
+}
+.location,#info,.contacts{
+  _margin-left: 10px!important;
+}
+.sidebar-search{
+  _margin-left: 0!important;
+}
+#form-avatar div.tabs{_
+padding:5px 9px 20px 10px!important;
+}
