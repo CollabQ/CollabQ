@@ -93,9 +93,14 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'urls'
 
+# The default theme to use
+DEFAULT_THEME = 'innogems'
+THEME_TEMPLATES = os.path.join(os.path.join(ROOT_PATH, 'templates'), DEFAULT_THEME)
+
 # Where the templates live, you probably don't want to change this unless you
 # know what you're doing
 TEMPLATE_DIRS = (
+    THEME_TEMPLATES,
     ROOT_PATH,
 )
 
@@ -200,11 +205,6 @@ SSL_LOGIN_ENABLED = False
 #
 # Appearance / Theme
 #
-
-# The default theme to use
-DEFAULT_THEME = 'innogems'
-
-
 
 #
 # Cookie

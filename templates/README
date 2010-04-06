@@ -1,0 +1,5 @@
+Some templates need some customization in html output, you can put your custom
+html templates for your themes here.
+
+Note: for security reasons we can not put this folder under /themes/ becouse it
+is target as static dir.
