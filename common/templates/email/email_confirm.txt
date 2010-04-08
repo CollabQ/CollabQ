@@ -1,7 +1,7 @@
 {% filter wordwrap:60 %}
 Welcome to {{SITE_NAME}}! Please confirm your email
 
-Thanks for joining {{SITE_NAME}}!
+Thanks for joining {{SITE_NAME}}, {{email_first}}!
 Could you help us by validating your email address? This gives you
 access to all the functionality  has to offer, including
 notifications about followers. Simply click on the link below (or copy and paste it into your browser)

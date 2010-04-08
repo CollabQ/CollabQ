@@ -68,8 +68,10 @@ def send(to_email, subject, message, on_behalf=None, html_message=None):
                                      html=html_message)
     try:
       _message.send()
+      return True
     except:
       logging.error('Email can not be sent')
+      return False
   else:
     log_blocked_send(on_behalf, to_email, subject, message)
     raise exception.ValidationError("Cannot send to that email address")

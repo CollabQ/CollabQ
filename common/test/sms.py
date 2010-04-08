@@ -24,6 +24,7 @@ from common import clean
 from common import exception
 from common import profile
 from common import sms as sms_service
+from common import util
 from common.protocol import sms
 from common.test import base
 from common.test import util as test_util
