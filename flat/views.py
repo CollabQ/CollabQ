@@ -23,18 +23,6 @@ from django.template import loader
 from common import decorator
 
 @decorator.cache_forever
-def flat_tour(request, page='create'):
-  page_num = ['create', 'contacts', 'mobile'].index(page) + 1
-    
-  # config for template
-  green_top = True
-  area = 'tour'
-
-  c = template.RequestContext(request, locals())
-  t = loader.get_template('flat/templates/tour_%s.html' % page)
-  return http.HttpResponse(t.render(c))
-
-@decorator.cache_forever
 def flat_about(request):
   sidebar_green_top = True
 
@@ -58,13 +46,6 @@ def flat_terms(request):
   # for template
   sidebar_green_top = True
 
-  c = template.RequestContext(request, locals())
-  
-  t = loader.get_template('flat/templates/terms.html')
-  return http.HttpResponse(t.render(c))
-
-@decorator.cache_forever
-def flat_press(request):
   c = template.RequestContext(request, locals())
   
   t = loader.get_template('flat/templates/terms.html')

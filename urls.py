@@ -42,14 +42,6 @@ urlpatterns += patterns('explore.views',
 # JOIN
 urlpatterns += patterns('join.views',
     (r'^join$', 'join_join'),
-    (r'^welcome$', 'join_welcome'),
-    (r'^welcome/1$', 'join_welcome_photo'),
-    #@begin zero code
-    #(r'^welcome/2$', 'join_welcome_mobile'),
-    #(r'^welcome/3$', 'join_welcome_contacts'),
-    #(r'^welcome/2$', 'join_welcome_contacts'),
-    #@end
-    (r'^welcome/done$', 'join_welcome_done'),
 )
 
 # INVITE
@@ -64,13 +56,9 @@ urlpatterns += patterns('confirm.views',
 
 # FLAT
 urlpatterns += patterns('flat.views',
-    (r'^tour$', 'flat_tour'),
-    (r'^tour/1$', 'flat_tour', {'page': 'create'}),
-    (r'^tour/2$', 'flat_tour', {'page': 'contacts'}),
     (r'^about$', 'flat_about'),
     (r'^privacy$', 'flat_privacy'),
     (r'^terms$', 'flat_terms'),
-    (r'^terms$', 'flat_press'),
     (r'^help$', 'flat_help'),
     (r'^sms$', 'flat_help', {'page': 'sms'}),
     (r'^help/im$', 'flat_help', {'page': 'im'}),
@@ -78,14 +66,9 @@ urlpatterns += patterns('flat.views',
 )
 
 ##### ADMINISTRATION #####
-
-# INSTALL
-urlpatterns += patterns('administration.views',
-  (r'^install$', 'install'),
-)
-
 # CHANNELS
 urlpatterns += patterns('administration.views',
+  (r'^install$', 'install'),
   (r'^admin/?$','admin'),
   (r'^admin/site$','admin_site'),
   (r'^admin/channels$','admin_channel'),
